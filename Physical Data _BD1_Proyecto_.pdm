@@ -3889,8 +3889,8 @@ PhysOpts=</a:ModelOptionsText>
 <c:GeneratedModels>
 <o:Shortcut Id="o3">
 <a:ObjectID>3773543F-71FD-452E-A746-E657A365C002</a:ObjectID>
-<a:Name>Physical Data _BD1&lt;Proyecto&gt;</a:Name>
-<a:Code>PHYSICAL_DATA__BD1_PROYECTO_</a:Code>
+<a:Name>Conceptual Data _BD1&lt;Proyecto&gt;V1.0</a:Name>
+<a:Code>CONCEPTUAL_DATA__BD1_PROYECTO_V1_0</a:Code>
 <a:CreationDate>1633572218</a:CreationDate>
 <a:Creator>Chinc</a:Creator>
 <a:ModificationDate>1633572218</a:ModificationDate>
@@ -6726,16 +6726,16 @@ LABL 0 Arial,8,N</a:FontList>
 </o:TargetModel>
 <o:TargetModel Id="o155">
 <a:ObjectID>1C5BC595-8F47-4857-8D39-34EF2306A0DD</a:ObjectID>
-<a:Name>Physical Data _BD1&lt;Proyecto&gt;</a:Name>
-<a:Code>PHYSICAL_DATA__BD1_PROYECTO_</a:Code>
+<a:Name>Conceptual Data _BD1&lt;Proyecto&gt;V1.0</a:Name>
+<a:Code>CONCEPTUAL_DATA__BD1_PROYECTO_V1_0</a:Code>
 <a:CreationDate>1633572218</a:CreationDate>
 <a:Creator>Chinc</a:Creator>
-<a:ModificationDate>1633576167</a:ModificationDate>
+<a:ModificationDate>1633582970</a:ModificationDate>
 <a:Modifier>Chinc</a:Modifier>
-<a:TargetModelURL>file:///D|/NetBeansProjects/GitBD1-Proyecto/Physical Data _BD1_Proyecto_V1.0.cdm</a:TargetModelURL>
+<a:TargetModelURL>file:///D|/NetBeansProjects/GitBD1-Proyecto/Conceptual Data _BD1_Proyecto_V1.0.cdm</a:TargetModelURL>
 <a:TargetModelID>E8D715FA-576A-41E4-872E-0D126DABC717</a:TargetModelID>
 <a:TargetModelClassID>1E597170-9350-11D1-AB3C-0020AF71E433</a:TargetModelClassID>
-<a:TargetModelLastModificationDate>1633576167</a:TargetModelLastModificationDate>
+<a:TargetModelLastModificationDate>1633576732</a:TargetModelLastModificationDate>
 <c:SessionShortcuts>
 <o:Shortcut Ref="o3"/>
 </c:SessionShortcuts>
