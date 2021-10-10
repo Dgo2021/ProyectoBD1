@@ -331,3 +331,4 @@ INCREMENT BY 1;
 /*agregar a detalle factura los servicios*/
 
 
+/*Cada equipo debe velar por su módulo en cuanto a Roles / Accesos / Seguridad*/
