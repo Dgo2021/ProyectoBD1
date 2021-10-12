@@ -108,8 +108,6 @@ create table EMPLEADO (
    idpersona            NUMBER(10)            not null,
    idclinica            NUMBER(10)            not null,
    idrol                number(10)            not null,
-   fecha_ingreso        DATE                  not null,
-   puesto               VARCHAR2(100)         not null,
    contrasenia          VARCHAR2(15)          not null,
    email                Varchar2(50)          not null,
    constraint PK_EMPLEADO primary key (idempleado),
