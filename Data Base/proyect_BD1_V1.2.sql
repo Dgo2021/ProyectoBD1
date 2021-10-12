@@ -111,6 +111,7 @@ create table EMPLEADO (
    fecha_ingreso        DATE                  not null,
    puesto               VARCHAR2(100)         not null,
    contrasenia          VARCHAR2(15)          not null,
+   email                Varchar2(50)          not null,
    constraint PK_EMPLEADO primary key (idempleado),
    constraint FK_EMPLEADO_PERSONA foreign key (idpersona) REFERENCES PERSONA(idpersona),
    constraint FK_EMPLEADO_CLINICA foreign key (idclinica) REFERENCES CLINICA(idclinica),
@@ -170,7 +171,6 @@ create table AGENDA (
    hora_ingreso         NUMBER(2)             not null,
    hora_salida          NUMBER(2)             not null,
    fecha                DATE                  not null,
-   estado               VARCHAR2(1)           not null,
    constraint PK_AGENDA primary key (idagenda),
    CONSTRAINT FK_AGENDA_EMPLEADO FOREIGN KEY (idempleado) REFERENCES EMPLEADO(idempleado),
    CONSTRAINT FK_AGENDA_AREA FOREIGN KEY (idarea) REFERENCES AREA(idarea),
@@ -208,14 +208,14 @@ create Table COMPONENTES(
 
 
 /*==============================================================*/
-/* Table: ROL_SERVICIO                                          */
+/* Table: ROL_COMPONENTES                                       */
 /*==============================================================*/
-create table ROL_SERVICIO(
+create table ROL_COMPONENTES(
    idcomponentes        number(10)        not null,
    idrol                number(10)        not null,
-   constraint PK_ROLSERVICIO primary KEY (idcomponentes, idrol),
-   constraint FK_ROLSERVICIO_COMP foreign KEY (idcomponentes) REFERENCES COMPONENTES(idcomponentes),
-   CONSTRAINT FK_ROLSERVICIO_ROL FOREIGN KEY (idrol) REFERENCES ROL(idrol)
+   constraint PK_ROLCOMPONENTES primary KEY (idcomponentes, idrol),
+   constraint FK_ROLCOMPONENTES_COMP foreign KEY (idcomponentes) REFERENCES COMPONENTES(idcomponentes),
+   CONSTRAINT FK_ROLCOMPONENTES_ROL FOREIGN KEY (idrol) REFERENCES ROL(idrol)
 );
 
 
