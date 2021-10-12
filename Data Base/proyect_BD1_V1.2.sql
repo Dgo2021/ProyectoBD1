@@ -233,22 +233,3 @@ create table ROL_COMPONENTES(
    constraint FK_ROLCOMPONENTES_COMP foreign KEY (idcomponentes) REFERENCES COMPONENTES(idcomponentes),
    CONSTRAINT FK_ROLCOMPONENTES_ROL FOREIGN KEY (idrol) REFERENCES ROL(idrol)
 );
-
-
-/*==============================================================*/
-/* INSERT: PERSONA                                              */
-/*==============================================================*/
-
-
---INSERT INTO PERSONA (nombres,apellidos,fecha_nacimiento,identificacion,nit,genero,telefono1,teleofno2)
---values ('PABLO','SOLARES','01/01/21','1234567891011','132456K','M','12345678',null);
-
-
-/* ROL
-administrador
-empleado
-supervisor
-servicio al cliente
-*/
-
-
