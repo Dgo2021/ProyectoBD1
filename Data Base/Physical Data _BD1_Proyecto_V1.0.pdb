@@ -4611,13 +4611,15 @@ Shadow=0
 <o:TitleSymbol Id="o7">
 <a:Text>Version: 1.0</a:Text>
 <a:CreationDate>1634017646</a:CreationDate>
-<a:ModificationDate>1634019659</a:ModificationDate>
-<a:Rect>((-48340,23210), (-31691,29953))</a:Rect>
+<a:ModificationDate>1634073566</a:ModificationDate>
+<a:Rect>((-51135,24707), (-31909,31450))</a:Rect>
 <a:TextStyle>4130</a:TextStyle>
+<a:AutoAdjustToText>0</a:AutoAdjustToText>
 <a:LineColor>16711680</a:LineColor>
 <a:FillColor>16777215</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
 <a:FontName>Arial,8,N</a:FontName>
+<a:ManuallyResized>1</a:ManuallyResized>
 </o:TitleSymbol>
 <o:ReferenceSymbol Id="o8">
 <a:ModificationDate>1634019659</a:ModificationDate>
@@ -4996,7 +4998,7 @@ DESTINATION 0 Arial,8,N</a:FontList>
 <o:ReferenceSymbol Id="o56">
 <a:CreationDate>1634006503</a:CreationDate>
 <a:ModificationDate>1634019659</a:ModificationDate>
-<a:Rect>((6068,1774), (24183,3518))</a:Rect>
+<a:Rect>((6068,1774), (24183,3512))</a:Rect>
 <a:ListOfPoints>((8236,2619),(23783,2222))</a:ListOfPoints>
 <a:ArrowStyle>1</a:ArrowStyle>
 <a:LineColor>12615680</a:LineColor>
@@ -5039,7 +5041,7 @@ DESTINATION 0 Arial,8,N</a:FontList>
 <a:CreationDate>1634059115</a:CreationDate>
 <a:ModificationDate>1634059139</a:ModificationDate>
 <a:CenterTextOffset>(4924, 461)</a:CenterTextOffset>
-<a:Rect>((-8402,28380), (12890,30733))</a:Rect>
+<a:Rect>((-8402,28380), (12890,30727))</a:Rect>
 <a:ListOfPoints>((-8002,29781),(4698,28881))</a:ListOfPoints>
 <a:ArrowStyle>1</a:ArrowStyle>
 <a:LineColor>12615680</a:LineColor>
@@ -6534,13 +6536,16 @@ ATT MAND</a:History>
 <a:Code>GENERO</a:Code>
 <a:CreationDate>1633576530</a:CreationDate>
 <a:Creator>Chinc</a:Creator>
-<a:ModificationDate>1634005675</a:ModificationDate>
+<a:ModificationDate>1634073337</a:ModificationDate>
 <a:Modifier>Chinc</a:Modifier>
 <a:History>ORG {01D5355B-1435-4968-81BB-1D01DD69EBE6}
 DAT 1633576530
 ORG {25B2F258-A781-4634-AA7E-903F791AD3BB}
 DAT 1633572218
-ATT MAND</a:History>
+ATT MAND
+ATT VALS</a:History>
+<a:ListOfValues>F	femenino
+M	masculino</a:ListOfValues>
 <a:DataType>VARCHAR2(1)</a:DataType>
 <a:Length>1</a:Length>
 </o:Column>
@@ -8695,7 +8700,7 @@ DAT 1633575790</a:History>
 <a:TargetModelURL>file:///D|/NetBeansProjects/GitBD1-Proyecto/Data Base/Conceptual_Data _BD1_Proyecto_V1.2.cdm</a:TargetModelURL>
 <a:TargetModelID>43E2762B-8C82-4316-94D0-3B765E2933BF</a:TargetModelID>
 <a:TargetModelClassID>1E597170-9350-11D1-AB3C-0020AF71E433</a:TargetModelClassID>
-<a:TargetModelLastModificationDate>1634061912</a:TargetModelLastModificationDate>
+<a:TargetModelLastModificationDate>1634073398</a:TargetModelLastModificationDate>
 <c:SessionShortcuts>
 <o:Shortcut Ref="o3"/>
 </c:SessionShortcuts>
