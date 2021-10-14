@@ -1,0 +1,33 @@
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col" *ngFor="let area of areas">
+            <div class="card mb-3 text-center" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{area.area}}</h5>
+                    <p class="card-text">Esta es el area de {{area.area}}</p>
+                    <button class="btn btn-primary" (click)="editarVariable()" *ngIf=!editar>Editar</button>
+                    <button class="btn btn-danger" (click)="editarVariable()" *ngIf=editar>Cancelar</button>
+                </div>
+                <div class="container">
+                    <form (submit)="editarArea(area)" *ngIf=editar>
+                        <div class="col-auto">
+
+                            <input type="text" class="form-control-plaintext text-center"
+                                value="Escriba el nuevo Nombre">
+                        </div>
+                        <div class="col-auto">
+                            <input type="text" class="form-control text-center" placeholder="Nuevo Nombre"
+                                [(ngModel)]="elemento.area" name="elemento">
+                        </div>
+                        <br>
+                        <div class="col-auto">
+                            <button class="btn btn-success mb-3">Confirmar Nombre</button>
+                        </div>
+                    </form>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
