@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row">
         <div class="col" *ngFor="let area of areas">
-            <div class="card mb-3 text-center" style="width: 18rem;">
+            <div class="card mb-3 text-center shadow-lg" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">{{area.area}}</h5>
                     <p class="card-text">Esta es el area de {{area.area}}</p>
@@ -17,7 +17,7 @@
                                 value="Escriba el nuevo Nombre">
                         </div>
                         <div class="col-auto">
-                            <input type="text" class="form-control text-center" placeholder="Nuevo Nombre"
+                            <input type="text" class="form-control text-center" placeholder="Nombre Nuevo..."
                                 [(ngModel)]="elemento.area" name="elemento">
                         </div>
                         <br>
