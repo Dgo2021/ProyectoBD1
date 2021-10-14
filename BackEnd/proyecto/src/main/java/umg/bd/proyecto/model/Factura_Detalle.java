@@ -1,34 +1,43 @@
 package umg.bd.proyecto.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 @Entity
-public class Factura_Detalle {
+@CrossOrigin
+public class Factura_Detalle implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Integer IdFactura_Detalle;
-	private Integer	IdFactura;
-	private Integer IdAgenda;
-	public Integer getIdFactura_Detalle() {
-		return IdFactura_Detalle;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer idfacturadetalle;
+	private Integer	idfactura;
+	private Integer idagenda;
+	
+	public Integer getIdfacturadetalle() {
+		return idfacturadetalle;
 	}
-	public void setIdFactura_Detalle(Integer idFactura_Detalle) {
-		IdFactura_Detalle = idFactura_Detalle;
+	public void setIdfacturadetalle(Integer idfacturadetalle) {
+		this.idfacturadetalle = idfacturadetalle;
 	}
-	public Integer getIdFactura() {
-		return IdFactura;
+	public Integer getIdfactura() {
+		return idfactura;
 	}
-	public void setIdFactura(Integer idFactura) {
-		IdFactura = idFactura;
+	public void setIdfactura(Integer idfactura) {
+		this.idfactura = idfactura;
 	}
-	public Integer getIdAgenda() {
-		return IdAgenda;
+	public Integer getIdagenda() {
+		return idagenda;
 	}
-	public void setIdAgenda(Integer idAgenda) {
-		IdAgenda = idAgenda;
+	public void setIdagenda(Integer idagenda) {
+		this.idagenda = idagenda;
 	}
 	
 	

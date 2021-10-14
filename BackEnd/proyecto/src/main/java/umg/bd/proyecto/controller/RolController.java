@@ -7,23 +7,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import umg.bd.proyecto.model.Persona;
-import umg.bd.proyecto.repository.PersonaRepository;
+import umg.bd.proyecto.model.Rol;
+import umg.bd.proyecto.repository.RolRepository;
 
 @RestController
-@RequestMapping(path="/persona")
-public class PersonaController {
+@RequestMapping(path="/rol")
+public class RolController {
 	 @Autowired
-	 private PersonaRepository personaRepository;
+	 private RolRepository rolRepository;
 	 
 	  @GetMapping(path="/all")
-	  public @ResponseBody Iterable<Persona> getAll() {
-	    return personaRepository.findAll();
+	  public @ResponseBody Iterable<Rol> getAll() {
+	    return rolRepository.findAll();
 	  }
 	  
 	  @PostMapping("/grabar")
-	  Persona save(@RequestBody Persona persona) {
-	    return personaRepository.save(persona);
+	  Rol save(@RequestBody Rol rol) {
+	    return rolRepository.save(rol);
 	  }
-
 }

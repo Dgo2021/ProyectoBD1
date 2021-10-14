@@ -7,23 +7,23 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import umg.bd.proyecto.model.Persona;
-import umg.bd.proyecto.repository.PersonaRepository;
+import umg.bd.proyecto.model.Agenda;
+import umg.bd.proyecto.repository.AgendaRepository;
 
 @RestController
-@RequestMapping(path="/persona")
-public class PersonaController {
+@RequestMapping(path="/agenda")
+public class AgendaController {
 	 @Autowired
-	 private PersonaRepository personaRepository;
+	 private AgendaRepository agendaRepository;
 	 
 	  @GetMapping(path="/all")
-	  public @ResponseBody Iterable<Persona> getAll() {
-	    return personaRepository.findAll();
+	  public @ResponseBody Iterable<Agenda> getAll() {
+	    return agendaRepository.findAll();
 	  }
 	  
 	  @PostMapping("/grabar")
-	  Persona save(@RequestBody Persona persona) {
-	    return personaRepository.save(persona);
+	  Agenda save(@RequestBody Agenda agenda) {
+	    return agendaRepository.save(agenda);
 	  }
-
+	  
 }

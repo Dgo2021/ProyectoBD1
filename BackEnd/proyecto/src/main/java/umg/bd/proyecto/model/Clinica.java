@@ -1,69 +1,48 @@
 package umg.bd.proyecto.model;
 
 import java.io.Serializable;
-import java.util.List;
-
-import javax.persistence.Basic;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Entity
-@Table(name= "Clinica")
+@CrossOrigin
 public class Clinica implements Serializable {
-	
-	private static final long serialVersionUID = 2L;
+
+	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Basic(optional = false)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer idclinica;
+	private Integer iddepartamento;
+	private String clinica;
+	private String direccion;
 	
-	@Column(name= "idclinica")
-	private Integer IdClinica;
-	
-	@OneToMany(mappedBy = "iddepartamento")
-	private List<Departamento> iddepartamentoList;
-	
-	//private Integer IdDepartamento;
-	@Column(name= "clinica")
-	private String Clinica;
-	
-	@Column(name= "direccion")
-	private String Direccion;
-	
-	public List<Departamento> getIddepartamentoList() {
-		return iddepartamentoList;
+	public Integer getIdclinica() {
+		return idclinica;
 	}
-	public void setIddepartamentoList(List<Departamento> iddepartamentoList) {
-		this.iddepartamentoList = iddepartamentoList;
+	public void setIdclinica(Integer idclinica) {
+		this.idclinica = idclinica;
 	}
-	public Integer getIdClinica() {
-		return IdClinica;
+	public Integer getIddepartamento() {
+		return iddepartamento;
 	}
-	public void setIdClinica(Integer idClinica) {
-		IdClinica = idClinica;
+	public void setIddepartamento(Integer iddepartamento) {
+		this.iddepartamento = iddepartamento;
 	}
-	/*public Integer getIdDepartamento() {
-		return IdDepartamento;
-	}
-	public void setIdDepartamento(Integer idDepartamento) {
-		IdDepartamento = idDepartamento;
-	}*/
 	public String getClinica() {
-		return Clinica;
+		return clinica;
 	}
 	public void setClinica(String clinica) {
-		Clinica = clinica;
+		this.clinica = clinica;
 	}
 	public String getDireccion() {
-		return Direccion;
+		return direccion;
 	}
 	public void setDireccion(String direccion) {
-		Direccion = direccion;
+		this.direccion = direccion;
 	}
 	
 }

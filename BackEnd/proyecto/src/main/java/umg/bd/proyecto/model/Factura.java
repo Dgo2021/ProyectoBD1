@@ -1,5 +1,6 @@
 package umg.bd.proyecto.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -7,60 +8,64 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 @Entity
-public class Factura {
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Integer IdFactura;
-	private Integer IdEmpleado;
-	private Integer Numero_Factura;
-	private Date Fecha_Emision;
-	private String Nit;
-	private String RazonSocial;
-	private Double Total;
+@CrossOrigin
+public class Factura implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	
-	public Integer getIdFactura() {
-		return IdFactura;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer idfactura;
+	private Integer idempelado;
+	private String numero_factura;
+	private Date fecha_emision;
+	private String nit;
+	private String razonsocial;
+	private Double total;
+	public Integer getIdfactura() {
+		return idfactura;
 	}
-	public void setIdFactura(Integer idFactura) {
-		IdFactura = idFactura;
+	public void setIdfactura(Integer idfactura) {
+		this.idfactura = idfactura;
 	}
-	public Integer getIdEmpleado() {
-		return IdEmpleado;
+	public Integer getIdempelado() {
+		return idempelado;
 	}
-	public void setIdEmpleado(Integer idEmpleado) {
-		IdEmpleado = idEmpleado;
+	public void setIdempelado(Integer idempelado) {
+		this.idempelado = idempelado;
 	}
-	public Integer getNumero_Factura() {
-		return Numero_Factura;
+	public String getNumero_factura() {
+		return numero_factura;
 	}
-	public void setNumero_Factura(Integer numero_Factura) {
-		Numero_Factura = numero_Factura;
+	public void setNumero_factura(String numero_factura) {
+		this.numero_factura = numero_factura;
 	}
-	public Date getFecha_Emision() {
-		return Fecha_Emision;
+	public Date getFecha_emision() {
+		return fecha_emision;
 	}
-	public void setFecha_Emision(Date fecha_Emision) {
-		Fecha_Emision = fecha_Emision;
+	public void setFecha_emision(Date fecha_emision) {
+		this.fecha_emision = fecha_emision;
 	}
 	public String getNit() {
-		return Nit;
+		return nit;
 	}
 	public void setNit(String nit) {
-		Nit = nit;
+		this.nit = nit;
 	}
-	public String getRazonSocial() {
-		return RazonSocial;
+	public String getRazonsocial() {
+		return razonsocial;
 	}
-	public void setRazonSocial(String razonSocial) {
-		RazonSocial = razonSocial;
+	public void setRazonsocial(String razonsocial) {
+		this.razonsocial = razonsocial;
 	}
 	public Double getTotal() {
-		return Total;
+		return total;
 	}
 	public void setTotal(Double total) {
-		Total = total;
+		this.total = total;
 	}
-	
 	
 }

@@ -7,23 +7,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import umg.bd.proyecto.model.Persona;
-import umg.bd.proyecto.repository.PersonaRepository;
+import umg.bd.proyecto.model.Areas_Clinica;
+import umg.bd.proyecto.repository.Areas_ClinicaRepository;
 
 @RestController
-@RequestMapping(path="/persona")
-public class PersonaController {
+@RequestMapping(path="/areasclinica")
+public class Areas_ClinicaController {
 	 @Autowired
-	 private PersonaRepository personaRepository;
+	 private Areas_ClinicaRepository areasClinicaRepository;
 	 
 	  @GetMapping(path="/all")
-	  public @ResponseBody Iterable<Persona> getAll() {
-	    return personaRepository.findAll();
+	  public @ResponseBody Iterable<Areas_Clinica> getAll() {
+	    return areasClinicaRepository.findAll();
 	  }
 	  
 	  @PostMapping("/grabar")
-	  Persona save(@RequestBody Persona persona) {
-	    return personaRepository.save(persona);
+	  Areas_Clinica save(@RequestBody Areas_Clinica areasclinica) {
+	    return areasClinicaRepository.save(areasclinica);
 	  }
-
 }

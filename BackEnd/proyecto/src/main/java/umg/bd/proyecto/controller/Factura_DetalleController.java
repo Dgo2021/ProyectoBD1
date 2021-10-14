@@ -7,23 +7,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import umg.bd.proyecto.model.Persona;
-import umg.bd.proyecto.repository.PersonaRepository;
+import umg.bd.proyecto.model.Factura_Detalle;
+import umg.bd.proyecto.repository.Factura_DetalleRepository;
 
 @RestController
-@RequestMapping(path="/persona")
-public class PersonaController {
+@RequestMapping(path="/facturadetalle")
+public class Factura_DetalleController {
 	 @Autowired
-	 private PersonaRepository personaRepository;
+	 private Factura_DetalleRepository facturaDetalleRepository;
 	 
 	  @GetMapping(path="/all")
-	  public @ResponseBody Iterable<Persona> getAll() {
-	    return personaRepository.findAll();
+	  public @ResponseBody Iterable<Factura_Detalle> getAll() {
+	    return facturaDetalleRepository.findAll();
 	  }
 	  
 	  @PostMapping("/grabar")
-	  Persona save(@RequestBody Persona persona) {
-	    return personaRepository.save(persona);
+	  Factura_Detalle save(@RequestBody Factura_Detalle detalle) {
+	    return facturaDetalleRepository.save(detalle);
 	  }
-
 }

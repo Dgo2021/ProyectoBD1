@@ -1,5 +1,6 @@
 package umg.bd.proyecto.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -7,79 +8,87 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 @Entity
-public class Agenda {
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Integer IdAgenda;
-	private Integer IdEmpleado;
-	private Integer IdArea;
-	private Integer IdClinica;
-	private Integer IdCliente;
-	private Integer IdServicio;
-	private Integer IdEstados;
-	private Integer Hora_Ingreso;
-	private Integer Hora_Salida;
-	private Date Fecha;
+@CrossOrigin
+public class Agenda implements Serializable {
 	
-	public Integer getIdAgenda() {
-		return IdAgenda;
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer idagenda;
+	private Integer idempelado;
+	private Integer idarea;
+	private Integer idclinica;
+	private Integer idcliente;
+	private Integer idservicio;
+	private Integer idestado;
+	private Integer hora_ingreso;
+	private Integer hora_salida;
+	private Date fecha;
+	
+	public Integer getIdagenda() {
+		return idagenda;
 	}
-	public void setIdAgenda(Integer idAgenda) {
-		IdAgenda = idAgenda;
+	public void setIdagenda(Integer idagenda) {
+		this.idagenda = idagenda;
 	}
-	public Integer getIdEmpleado() {
-		return IdEmpleado;
+	public Integer getIdempelado() {
+		return idempelado;
 	}
-	public void setIdEmpleado(Integer idEmpleado) {
-		IdEmpleado = idEmpleado;
+	public void setIdempelado(Integer idempelado) {
+		this.idempelado = idempelado;
 	}
-	public Integer getIdArea() {
-		return IdArea;
+	public Integer getIdarea() {
+		return idarea;
 	}
-	public void setIdArea(Integer idArea) {
-		IdArea = idArea;
+	public void setIdarea(Integer idarea) {
+		this.idarea = idarea;
 	}
-	public Integer getIdClinica() {
-		return IdClinica;
+	public Integer getIdclinica() {
+		return idclinica;
 	}
-	public void setIdClinica(Integer idClinica) {
-		IdClinica = idClinica;
+	public void setIdclinica(Integer idclinica) {
+		this.idclinica = idclinica;
 	}
-	public Integer getIdCliente() {
-		return IdCliente;
+	public Integer getIdcliente() {
+		return idcliente;
 	}
-	public void setIdCliente(Integer idCliente) {
-		IdCliente = idCliente;
+	public void setIdcliente(Integer idcliente) {
+		this.idcliente = idcliente;
 	}
-	public Integer getIdServicio() {
-		return IdServicio;
+	public Integer getIdservicio() {
+		return idservicio;
 	}
-	public void setIdServicio(Integer idServicio) {
-		IdServicio = idServicio;
+	public void setIdservicio(Integer idservicio) {
+		this.idservicio = idservicio;
 	}
-	public Integer getIdEstados() {
-		return IdEstados;
+	public Integer getIdestado() {
+		return idestado;
 	}
-	public void setIdEstados(Integer idEstados) {
-		IdEstados = idEstados;
+	public void setIdestado(Integer idestado) {
+		this.idestado = idestado;
 	}
-	public Integer getHora_Ingreso() {
-		return Hora_Ingreso;
+	public Integer getHora_ingreso() {
+		return hora_ingreso;
 	}
-	public void setHora_Ingreso(Integer hora_Ingreso) {
-		Hora_Ingreso = hora_Ingreso;
+	public void setHora_ingreso(Integer hora_ingreso) {
+		this.hora_ingreso = hora_ingreso;
 	}
-	public Integer getHora_Salida() {
-		return Hora_Salida;
+	public Integer getHora_salida() {
+		return hora_salida;
 	}
-	public void setHora_Salida(Integer hora_Salida) {
-		Hora_Salida = hora_Salida;
+	public void setHora_salida(Integer hora_salida) {
+		this.hora_salida = hora_salida;
 	}
 	public Date getFecha() {
-		return Fecha;
+		return fecha;
 	}
 	public void setFecha(Date fecha) {
-		Fecha = fecha;
+		this.fecha = fecha;
 	}
-	}
+	
+	
+}

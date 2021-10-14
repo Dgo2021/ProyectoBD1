@@ -1,29 +1,35 @@
 package umg.bd.proyecto.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
-public class Cliente {
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Integer IdCliente;
-	private Integer IdPersona;
-	
-	public Integer getIdCliente() {
-		return IdCliente;
-	}
-	public void setIdCliente(Integer idCliente) {
-		IdCliente = idCliente;
-	}
-	public Integer getIdPersona() {
-		return IdPersona;
-	}
-	public void setIdPersona(Integer idPersona) {
-		IdPersona = idPersona;
-	}
-	
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+@Entity
+@CrossOrigin
+public class Cliente implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer idcliente;
+	private Integer idpersona;
+	
+	public Integer getIdcliente() {
+		return idcliente;
+	}
+	public void setIdcliente(Integer idcliente) {
+		this.idcliente = idcliente;
+	}
+	public Integer getIdpersona() {
+		return idpersona;
+	}
+	public void setIdpersona(Integer idpersona) {
+		this.idpersona = idpersona;
+	}
 }

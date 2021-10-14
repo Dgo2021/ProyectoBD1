@@ -23,7 +23,7 @@ public class AreaController {
 	  }
 	  
 	  @PostMapping("/grabar")
-	  Area saveArea(@RequestBody Area area) {
+	  Area save(@RequestBody Area area) {
 	    return areaRepository.save(area);
 	  }
 	  

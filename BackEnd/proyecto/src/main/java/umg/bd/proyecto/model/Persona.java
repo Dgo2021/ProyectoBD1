@@ -1,5 +1,6 @@
 package umg.bd.proyecto.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -7,72 +8,78 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 @Entity
-public class Persona {
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Integer IdPersona;
-	private String Nombres;
-	private String Apellidos;
-	private Date Fecha_Nacimiento;
-	private String Identificacion;
-	private String Nit;
-	private String Genero;
-	private Integer Telefono1;
-	private Integer Telefono2;
+@CrossOrigin
+public class Persona implements Serializable {
 	
-	public Integer getIdPersona() {
-		return IdPersona;
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer idpersona;
+	private String nombres;
+	private String apellidos;
+	private Date fecha_nacimiento;
+	private String identificacion;
+	private String nit;
+	private String genero;
+	private Integer telefono1;
+	private Integer telefono2;
+	public Integer getIdpersona() {
+		return idpersona;
 	}
-	public void setIdPersona(Integer idPersona) {
-		IdPersona = idPersona;
+	public void setIdpersona(Integer idpersona) {
+		this.idpersona = idpersona;
 	}
 	public String getNombres() {
-		return Nombres;
+		return nombres;
 	}
 	public void setNombres(String nombres) {
-		Nombres = nombres;
+		this.nombres = nombres;
 	}
 	public String getApellidos() {
-		return Apellidos;
+		return apellidos;
 	}
 	public void setApellidos(String apellidos) {
-		Apellidos = apellidos;
+		this.apellidos = apellidos;
 	}
-	public Date getFecha_Nacimiento() {
-		return Fecha_Nacimiento;
+	public Date getFecha_nacimiento() {
+		return fecha_nacimiento;
 	}
-	public void setFecha_Nacimiento(Date fecha_Nacimiento) {
-		Fecha_Nacimiento = fecha_Nacimiento;
+	public void setFecha_nacimiento(Date fecha_nacimiento) {
+		this.fecha_nacimiento = fecha_nacimiento;
 	}
 	public String getIdentificacion() {
-		return Identificacion;
+		return identificacion;
 	}
 	public void setIdentificacion(String identificacion) {
-		Identificacion = identificacion;
+		this.identificacion = identificacion;
 	}
 	public String getNit() {
-		return Nit;
+		return nit;
 	}
 	public void setNit(String nit) {
-		Nit = nit;
+		this.nit = nit;
 	}
 	public String getGenero() {
-		return Genero;
+		return genero;
 	}
 	public void setGenero(String genero) {
-		Genero = genero;
+		this.genero = genero;
 	}
 	public Integer getTelefono1() {
-		return Telefono1;
+		return telefono1;
 	}
 	public void setTelefono1(Integer telefono1) {
-		Telefono1 = telefono1;
+		this.telefono1 = telefono1;
 	}
 	public Integer getTelefono2() {
-		return Telefono2;
+		return telefono2;
 	}
 	public void setTelefono2(Integer telefono2) {
-		Telefono2 = telefono2;
+		this.telefono2 = telefono2;
 	}
+	
 }
