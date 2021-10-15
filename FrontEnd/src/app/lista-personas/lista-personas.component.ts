@@ -32,7 +32,15 @@ export class ListaPersonasComponent implements OnInit {
     localStorage.setItem('empleado',JSON.stringify(empleado));
     location.href='/editarEmpleado';
   }
+<<<<<<< Updated upstream
  
+=======
+  modificarEmpleado(empleado:any){
+    localStorage.setItem('empleado',empleado);
+    let emp = JSON.stringify(localStorage.getItem('empleado'))
+    console.log(emp)
+  }
+>>>>>>> Stashed changes
 
 
 }

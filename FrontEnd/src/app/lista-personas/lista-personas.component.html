@@ -3,12 +3,20 @@
 <div class="container">
   <div class="row">
     <div class="col text-center">
+<<<<<<< Updated upstream
         <div class="card shadow-lg" style="width: 18rem;" *ngFor="let empleado of empleados">
+=======
+        <div class="card shadow-lg" style="width: 18rem;" *ngFor="let empleado of empleadosCompleto" >
+>>>>>>> Stashed changes
             <div class="card-body">
               <h5 class="card-title">{{empleado.persona.nombres}} {{empleado.persona.apellidos}}</h5>
               <h6 class="card-subtitle mb-2 text-muted">ID del Empleado: {{empleado.idempleado}}</h6>
               <p class="card-text">Correo Electronico: {{empleado.email}}</p>
+<<<<<<< Updated upstream
               <button class="btn btn-warning" (click)='editarEmpleado(empleado)' >Editar Datos</button>
+=======
+              <button class="btn btn-warning" (click)="modificarEmpleado(empleado)" >Editar Datos</button>
+>>>>>>> Stashed changes
             </div>
           </div>
     </div>
