@@ -10,12 +10,12 @@ export class ListaPersonasComponent implements OnInit {
 
   empleados: any = [];
   personas: any = [];
-  empleado: any = {idempleado: 0,idclinica: 0,email:''};
+  empleado: any = {};
   empleadosCompleto: any = [];
 
   constructor(private areaService: AreaService) {
     this.areaService.llenarEmpleados().subscribe(req => this.mostrarEmpleados(req));
-    this.areaService.llenarPersona().subscribe(req => this.mostrarPersona(req));
+    
 
 
   }
@@ -25,13 +25,7 @@ export class ListaPersonasComponent implements OnInit {
 
   mostrarEmpleados(req: any) {
     this.empleados = req;
-    this.empleados.forEach((element: any) => {
-      this.empleado.idempleado = element.idempleado
-      this.empleado.idclinica = element.idclinica
-      this.empleado.email = element.email
-      this.areaService.buscarPersona(element.idpersona)
-      .subscribe(req => this.datosEmpleado(req))
-    })
+    console.log(this.empleados);
     
   }
   mostrarPersona(req: any): void {
@@ -46,6 +40,12 @@ export class ListaPersonasComponent implements OnInit {
     console.log(this.empleado)
     this.empleadosCompleto.push(this.empleado);
 
+  }
+  modificarEmpleado(empleado:any){
+    localStorage.setItem('empleado',empleado);
+    let emp = localStorage.getItem('empleado')
+    //let parse = JSON.parse(emp)
+    console.log()
   }
 
 
