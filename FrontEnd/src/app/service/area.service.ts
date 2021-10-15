@@ -27,6 +27,14 @@ export class AreaService {
     }
     return this.http.post<any>(this.URL+'/area/grabar',area, httpOptions)
   };
+  actualizarPersona(persona:any){
+    var httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':'application/json'
+      })
+    }
+    return this.http.post<any>(this.URL+'/persona/grabar',persona, httpOptions)
+  };
 
   llenarEmpleados(){
     return this.http.get<any>(this.URL+'/empleado/all').pipe(catchError(e=>"error"));
