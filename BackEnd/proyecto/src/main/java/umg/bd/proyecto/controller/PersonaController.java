@@ -2,6 +2,7 @@ package umg.bd.proyecto.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,4 +27,8 @@ public class PersonaController {
 	    return personaRepository.save(persona);
 	  }
 
+	  @GetMapping(path="/{id}")
+	  public Persona  getById(@PathVariable Integer id) {
+	    return personaRepository.findByIdpersona(id);
+	  }
 }
