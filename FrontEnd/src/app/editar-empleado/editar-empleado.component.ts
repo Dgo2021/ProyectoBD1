@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscriber } from 'rxjs';
+import { subscribeOn } from 'rxjs/operators';
 import { AreaService } from '../service/area.service';
 
 @Component({
@@ -8,9 +10,10 @@ import { AreaService } from '../service/area.service';
 })
 export class EditarEmpleadoComponent implements OnInit {
   empleado:any = {}; 
+  clinicas:any = [];
 
   constructor(private areaService: AreaService) {
-    
+    this.areaService.llenarClinicas().subscribe(req => this.llenarClinicas(req));
    }
 
   ngOnInit(): void {
@@ -24,10 +27,15 @@ export class EditarEmpleadoComponent implements OnInit {
     location.href="/personas";
   }
   editarEmpleado(){
-    alert("esto no funciona... aun!!")
-  }
+    this.areaService.actualizarEmpleado(this.empleado).subscribe(req => this.aviso(req));
+    alert("Empleado Actualizado");
+    location.href="/personas";
+  };
   aviso(perona:any){
     console.log(perona)
-  }
+  };
+  llenarClinicas(req:any){
+    this.clinicas = req;
+  };
 
 }

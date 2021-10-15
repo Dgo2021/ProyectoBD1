@@ -10,7 +10,7 @@
         <div class="col-6"class="position-static">
             <div class="mb-3 mt-2">
                 <label for="exampleFormControlInput1" class="form-label">Nombres</label>
-                <input type="text" class="form-control"  placeholder="{{empleado.persona.nombres}}" [(ngModel)]="empleado.persona.nombres">
+                <input type="text" class="form-control"  placeholder="{{empleado.persona.nombres}}" [(ngModel)]="empleado.persona.nombres" autofocus>
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">Apellidos</label>
@@ -59,8 +59,11 @@
                 <input type="text" class="form-control"  placeholder="{{empleado.email}}" [(ngModel)]="empleado.email">
             </div>
             <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Clinica</label>
-                <input type="text" class="form-control" placeholder="{{empleado.persona.idclinica}}"[(ngModel)]="empleado.idclinica">
+                <label class="form-label">Clinica</label>
+                <select class="form-select" aria-label="Default select example" [(ngModel)]="empleado.idclinica" name="empleado.idclinica">
+                    <option selected >{{empleado.idclinica}}</option>
+                    <option *ngFor="let clinica of clinicas" value="{{clinica.idclinica}}" >{{clinica.clinica}}</option>
+                  </select>
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">Rol</label>

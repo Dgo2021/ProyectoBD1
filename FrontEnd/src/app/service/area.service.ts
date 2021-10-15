@@ -35,6 +35,14 @@ export class AreaService {
     }
     return this.http.post<any>(this.URL+'/persona/grabar',persona, httpOptions)
   };
+  actualizarEmpleado(empleado:any){
+    var httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':'application/json'
+      })
+    }
+    return this.http.post<any>(this.URL+'/empleado/grabar',empleado,httpOptions);
+  };
 
   llenarEmpleados(){
     return this.http.get<any>(this.URL+'/empleado/all').pipe(catchError(e=>"error"));
@@ -44,6 +52,9 @@ export class AreaService {
   }
   buscarPersona(id:any){
     return this.http.get<any>(this.URL+'/persona/'+id).pipe(catchError(e=>'error'));
+  }
+  llenarClinicas(){
+    return this.http.get<any>(this.URL+"/clinica/all").pipe(catchError(e =>'error'));
   }
  
 
