@@ -1,0 +1,14 @@
+
+<br>
+<div class="row p2">
+    <div class="col text-center">
+        <div class="card shadow-lg" style="width: 18rem;" *ngFor="let empleado of empleadosCompleto">
+            <div class="card-body">
+              <h5 class="card-title">{{empleado.nombres}} {{empleado.apellidos}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">ID del Empleado: {{empleado.idempleado}}</h6>
+              <p class="card-text">Correo Electronico: {{empleado.email}}</p>
+              <button class="btn btn-warning" href="#" >Editar Datos</button>
+            </div>
+          </div>
+    </div>
+</div>
