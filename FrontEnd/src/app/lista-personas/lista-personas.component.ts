@@ -26,27 +26,13 @@ export class ListaPersonasComponent implements OnInit {
   mostrarEmpleados(req: any) {
     this.empleados = req;
     console.log(this.empleados);
-    
   }
-  mostrarPersona(req: any): void {
-    this.personas = req;
-    console.log(this.personas);
+  editarEmpleado(empleado:any){
+    console.log(empleado);
+    localStorage.setItem('empleado',JSON.stringify(empleado));
+    location.href='/editarEmpleado';
   }
-  datosEmpleado(req: any) {
-    req.idempleado = this.empleado.idempleado;
-    req.idclinica = this.empleado.idclinica;
-    req.email = this.empleado.email;
-    this.empleado = req;
-    console.log(this.empleado)
-    this.empleadosCompleto.push(this.empleado);
-
-  }
-  modificarEmpleado(empleado:any){
-    localStorage.setItem('empleado',empleado);
-    let emp = localStorage.getItem('empleado')
-    //let parse = JSON.parse(emp)
-    console.log()
-  }
+ 
 
 
 }

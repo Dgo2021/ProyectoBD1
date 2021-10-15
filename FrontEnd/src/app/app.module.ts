@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { AreaComponent } from './area/area.component';
 import { ListaPersonasComponent } from './lista-personas/lista-personas.component';
 import { FacturaComponent } from './factura/factura.component';
+import { EditarEmpleadoComponent } from './editar-empleado/editar-empleado.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FacturaComponent } from './factura/factura.component';
     LoginComponent,
     AreaComponent,
     ListaPersonasComponent,
-    FacturaComponent
+    FacturaComponent,
+    EditarEmpleadoComponent
   ],
   imports: [
     BrowserModule,
