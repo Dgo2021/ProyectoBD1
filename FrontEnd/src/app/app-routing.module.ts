@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { AreaComponent } from './area/area.component'; 
 import { ListaPersonasComponent } from './lista-personas/lista-personas.component';
+import { FacturaComponent } from './factura/factura.component';
 
 const routes: Routes = [{
   path: 'login',
@@ -16,7 +17,12 @@ const routes: Routes = [{
 {
   path: 'personas',
   component: ListaPersonasComponent
-}];
+},
+{
+  path: 'factura',
+  component: FacturaComponent
+}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
