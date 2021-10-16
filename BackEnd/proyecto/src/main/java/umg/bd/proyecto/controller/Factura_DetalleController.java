@@ -1,6 +1,7 @@
 package umg.bd.proyecto.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,6 +13,7 @@ import umg.bd.proyecto.repository.Factura_DetalleRepository;
 
 @RestController
 @RequestMapping(path="/facturadetalle")
+@CrossOrigin
 public class Factura_DetalleController {
 	 @Autowired
 	 private Factura_DetalleRepository facturaDetalleRepository;

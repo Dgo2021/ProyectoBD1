@@ -7,10 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-
 @Entity
-@CrossOrigin
 public class Servicio implements Serializable {
 
 	private static final long serialVersionUID = 1L;
