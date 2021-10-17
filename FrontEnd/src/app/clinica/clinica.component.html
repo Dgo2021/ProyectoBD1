@@ -1,0 +1,48 @@
+<div class="container"> 
+	<span style="text-align:center;"><h1>Clinica</h1></span>
+	<div id="ingreso" class="row" style="display: flex; justify-content:center; ">
+		<div class="form-group col-lg-5" style="border: 1px solid LightGrey; border-radius:20px; padding: 30px 60px 30px 60px; margin-top:30px;">
+			<div class="mb-3">
+				<label for="clinica" class="form-label">Clinica:</label>
+				<input type="text" class="form-control" placeholder="Clinica" [(ngModel)]="this.clinica.clinica" required>
+				</div>
+			<div class="mb-3">
+				<label for="direccion" class="form-label">Direccion:</label>
+				<input type="text" class="form-control" placeholder="Direccion" [(ngModel)]="this.clinica.direccion" required>
+			</div>
+
+			<div class="mb-3">
+				<label for="departamento" class="form-label" >Departamento</label>
+				<select class="form-select" aria-label="Departamento" [ngModel]="this.selectedValue" (ngModelChange)="selectValue($event) " >
+					<option *ngFor="let d of this.deptos" [ngValue]="d.iddepartamento">{{d.departamento}}</option>
+				</select>
+			</div>
+			<div>
+                <button type="button" class="btn btn-primary" (click)="grabar()" style="margin:5px">Grabar</button>
+                <button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+            </div>
+		</div>
+	</div>
+	<div id="Listado" class="row" style="display: flex; justify-content:center;">
+		<div class="col-lg-8" style="border: 1px solid LightGrey; border-radius:20px; padding: 10px 30px 10px 30px; margin-top:30px;">
+		<h2 style="display: flex; justify-content:center; ">Listado de Clinicas</h2><br>
+		<table class="table table-striped" >
+			<thead>
+				<th scope="col">Id</th>
+				<th scope="col">Clinica</th>
+				<th scope="col">Direccion</th>
+				<th scope="col">Departamento</th>
+			</thead>
+			<tbody>
+				<tr *ngFor="let clinica of this.clinicas">
+					<th scope="row">{{clinica.idclinica}}</th>
+					<td>{{clinica.clinica}}</td>
+					<td>{{clinica.direccion}}</td>
+					<td>{{this.getDepto(clinica.iddepartamento)}}</td>
+					<td><button type="button" class="btn btn-primary" (click)="EditarButton(clinica)">Editar</button></td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	</div>
+	</div>

@@ -17,7 +17,6 @@ public class Clinica implements Serializable {
 	private Integer iddepartamento;
 	private String clinica;
 	private String direccion;
-	
 	public Integer getIdclinica() {
 		return idclinica;
 	}
@@ -42,5 +41,4 @@ public class Clinica implements Serializable {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
-	
-}
+	}

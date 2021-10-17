@@ -1,8 +1,11 @@
 package umg.bd.proyecto.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +24,10 @@ public class DepartamentoController {
 	  @GetMapping(path="/all")
 	  public @ResponseBody Iterable<Departamento> getAll() {
 	    return departamentoRepository.findAll();
+	  }
+	  @GetMapping(path="/{id}")
+	  public Optional<Departamento> getById(@PathVariable("id") Integer id) {
+	    return departamentoRepository.findById(id);
 	  }
 	  
 	  @PostMapping("/grabar")

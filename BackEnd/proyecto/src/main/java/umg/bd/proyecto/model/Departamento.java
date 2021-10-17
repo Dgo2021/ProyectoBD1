@@ -15,7 +15,7 @@ public class Departamento implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer iddepartamento;	
 	private String Departamento;
-	
+
 	public Integer getIddepartamento() {
 		return iddepartamento;
 	}

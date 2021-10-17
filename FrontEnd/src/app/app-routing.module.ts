@@ -6,6 +6,7 @@ import { AreaComponent } from './area/area.component';
 import { ListaPersonasComponent } from './lista-personas/lista-personas.component';
 import { EditarEmpleadoComponent } from './editar-empleado/editar-empleado.component';
 import { FacturaComponent } from './factura/factura.component';
+import { ClinicaComponent } from './clinica/clinica.component';
 
 const routes: Routes = [{
   path: 'login',
@@ -26,6 +27,9 @@ const routes: Routes = [{
 {
   path: 'editarEmpleado',
   component: EditarEmpleadoComponent
+},
+{
+  path: 'clinica', component:ClinicaComponent
 }
 ];
 
