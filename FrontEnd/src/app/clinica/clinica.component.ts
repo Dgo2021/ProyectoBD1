@@ -19,7 +19,7 @@ export class ClinicaComponent implements OnInit {
     
   ngOnInit(): void {
     this.deptoService.getAll().subscribe(data => this.getDepartamentos(data));
-    this.clinicaService.getAll().subscribe(data => this.getClinicas(data));
+    
   }
 
   getClinicas(data:Clinica[]){
@@ -28,6 +28,7 @@ export class ClinicaComponent implements OnInit {
 
   getDepartamentos(data:Departamento[]){
     this.deptos=data;
+    this.clinicaService.getAll().subscribe(data => this.getClinicas(data));
   }
 
   getDepto(id:any):string{
@@ -48,6 +49,7 @@ export class ClinicaComponent implements OnInit {
   
   finalizar(data:any){
     this.deptoService.getAll().subscribe(data => this.getDepartamentos(data));
+    this.cancelar();
   }
 
   cancelar(){
