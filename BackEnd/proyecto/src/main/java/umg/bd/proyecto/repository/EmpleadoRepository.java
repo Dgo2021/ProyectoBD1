@@ -5,4 +5,5 @@ import umg.bd.proyecto.model.Empleado;
 
 public interface EmpleadoRepository extends CrudRepository<Empleado, Long> {
 	public Empleado findByEmail(String email);
+	
 }

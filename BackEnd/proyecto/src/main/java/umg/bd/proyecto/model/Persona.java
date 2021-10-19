@@ -19,7 +19,7 @@ public class Persona implements Serializable {
 	private String nombres;
 	private String apellidos;
 	private Date fecha_nacimiento;
-	private String identificacion;
+	private Integer identificacion;
 	private String nit;
 	private String genero;
 	private Integer telefono1;
@@ -48,10 +48,10 @@ public class Persona implements Serializable {
 	public void setFecha_nacimiento(Date fecha_nacimiento) {
 		this.fecha_nacimiento = fecha_nacimiento;
 	}
-	public String getIdentificacion() {
+	public Integer getIdentificacion() {
 		return identificacion;
 	}
-	public void setIdentificacion(String identificacion) {
+	public void setIdentificacion(Integer identificacion) {
 		this.identificacion = identificacion;
 	}
 	public String getNit() {

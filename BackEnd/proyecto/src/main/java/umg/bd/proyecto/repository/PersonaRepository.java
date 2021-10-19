@@ -7,5 +7,6 @@ import umg.bd.proyecto.model.Persona;
 
 public interface PersonaRepository extends CrudRepository<Persona, Long> {
 	public Persona findByIdpersona(Integer idpersona);
+	public Persona findByIdentificacion(Integer identificacion);
 
 }

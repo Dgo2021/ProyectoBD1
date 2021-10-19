@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import umg.bd.proyecto.model.Persona;
 import umg.bd.proyecto.repository.PersonaRepository;
 
@@ -25,11 +24,14 @@ public class PersonaController {
 	  public @ResponseBody Iterable<Persona> getAll() {
 	    return personaRepository.findAll();
 	  }
-	  @GetMapping(path="/{idPersona}")
+	  /*@GetMapping(path="/{idPersona}")
 	  public Persona getIdEmpleado(@PathVariable Integer idPersona) {
 		 return personaRepository.findByIdpersona(idPersona);
-	  }
-	      
+	  }*/
+	  @GetMapping(path="/{identificacion}")
+	  public Persona getIdentificacionEmpleado(@PathVariable("identificacion") Integer identificacion) {
+		 return personaRepository.findByIdentificacion(identificacion);
+	  }   
 	  
 	  
 	  @PostMapping("/grabar")
@@ -38,8 +40,8 @@ public class PersonaController {
 	  }
 	  
 
-	  @GetMapping(path="/{id}")
+	  /*@GetMapping(path="/{id}")
 	  public Persona  getById(@PathVariable Integer id) {
 	    return personaRepository.findByIdpersona(id);
-	  }
+	  }*/
 }
