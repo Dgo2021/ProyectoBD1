@@ -1,14 +1,15 @@
 package umg.bd.proyecto.controller;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import umg.bd.proyecto.model.Area;
 import umg.bd.proyecto.repository.AreaRepository;
 
@@ -29,4 +30,8 @@ public class AreaController {
 	    return areaRepository.save(area);
 	  }
 	  
+	  @GetMapping(path="/clinica/{id}")
+	  public List<Area> getByIdclinica(@PathVariable("id") Integer id) {
+	    return areaRepository.findByIdclinica(id);
+	  }
 }

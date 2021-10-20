@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { Area } from '../models/Area.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,11 @@ export class AreaService {
     return this.http.get<any>(this.URL +'/area/all').pipe(catchError(e => "error"));
 
   }
+
+  getAreasByClinicaId(idclinica:number):Observable<Area[]>{
+    return this.http.get<Area[]>(this.URL+'/area/clinica/'+idclinica);
+  }
+
   actualizarService(area:any){
     var httpOptions = {
       headers: new HttpHeaders({

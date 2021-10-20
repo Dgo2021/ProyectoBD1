@@ -1,5 +1,7 @@
 package umg.bd.proyecto.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,21 +27,12 @@ public class PersonaController {
 	  public @ResponseBody Iterable<Persona> getAll() {
 	    return personaRepository.findAll();
 	  }
-	  @GetMapping(path="/{idPersona}")
-	  public Persona getIdEmpleado(@PathVariable Integer idPersona) {
-		 return personaRepository.findByIdpersona(idPersona);
-	  }
-	      
-	  
-	  
 	  @PostMapping("/grabar")
 	  Persona save(@RequestBody Persona persona) {
 	    return personaRepository.save(persona);
 	  }
-	  
-
 	  @GetMapping(path="/{id}")
-	  public Persona  getById(@PathVariable Integer id) {
-	    return personaRepository.findByIdpersona(id);
+	  public Optional<Persona> getById(@PathVariable Integer id) {
+	    return personaRepository.findById(id);
 	  }
 }

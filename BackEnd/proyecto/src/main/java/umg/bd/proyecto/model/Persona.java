@@ -79,4 +79,6 @@ public class Persona implements Serializable {
 		this.telefono2 = telefono2;
 	}
 	
+	
+	
 }

@@ -7,6 +7,7 @@ import { ListaPersonasComponent } from './lista-personas/lista-personas.componen
 import { EditarEmpleadoComponent } from './editar-empleado/editar-empleado.component';
 import { FacturaComponent } from './factura/factura.component';
 import { ClinicaComponent } from './clinica/clinica.component';
+import { AgendaComponent } from './agenda/agenda.component';
 
 const routes: Routes = [{
   path: 'login',
@@ -30,6 +31,9 @@ const routes: Routes = [{
 },
 {
   path: 'clinica', component:ClinicaComponent
+},
+{
+  path: 'agenda', component:AgendaComponent
 }
 ];
 

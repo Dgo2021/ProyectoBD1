@@ -2,10 +2,13 @@ package umg.bd.proyecto.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Agenda implements Serializable {
@@ -15,27 +18,13 @@ public class Agenda implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer idagenda;
-	private Integer idempelado;
-	private Integer idarea;
 	private Integer idclinica;
-	private Integer idcliente;
-	private Integer idservicio;
-	private Integer idestado;
-	private Integer hora_ingreso;
-	private Integer hora_salida;
-	private Date fecha;
-	
-	public Integer getIdagenda() {
-		return idagenda;
+	private Integer idarea;
+	public Integer getIdclinica() {
+		return idclinica;
 	}
-	public void setIdagenda(Integer idagenda) {
-		this.idagenda = idagenda;
-	}
-	public Integer getIdempelado() {
-		return idempelado;
-	}
-	public void setIdempelado(Integer idempelado) {
-		this.idempelado = idempelado;
+	public void setIdclinica(Integer idclinica) {
+		this.idclinica = idclinica;
 	}
 	public Integer getIdarea() {
 		return idarea;
@@ -43,41 +32,60 @@ public class Agenda implements Serializable {
 	public void setIdarea(Integer idarea) {
 		this.idarea = idarea;
 	}
-	public Integer getIdclinica() {
-		return idclinica;
+	private Integer hora_ingreso;
+	private Date fecha;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "idempleado", referencedColumnName = "idempleado")
+	private Empleado empleado;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "idcliente", referencedColumnName = "idcliente")
+	private Cliente cliente;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "idservicio", referencedColumnName = "idservicio")
+	private Servicio servicio;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "idestado", referencedColumnName = "idestado")
+	private Agenda_Estado estado;
+	
+	public Agenda_Estado getEstado() {
+		return estado;
 	}
-	public void setIdclinica(Integer idclinica) {
-		this.idclinica = idclinica;
+	public void setEstado(Agenda_Estado estado) {
+		this.estado = estado;
 	}
-	public Integer getIdcliente() {
-		return idcliente;
+	public Servicio getServicio() {
+		return servicio;
 	}
-	public void setIdcliente(Integer idcliente) {
-		this.idcliente = idcliente;
+	public void setServicio(Servicio servicio) {
+		this.servicio = servicio;
 	}
-	public Integer getIdservicio() {
-		return idservicio;
+	public Cliente getCliente() {
+		return cliente;
 	}
-	public void setIdservicio(Integer idservicio) {
-		this.idservicio = idservicio;
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
-	public Integer getIdestado() {
-		return idestado;
+	public Empleado getEmpleado() {
+		return empleado;
 	}
-	public void setIdestado(Integer idestado) {
-		this.idestado = idestado;
+	public void setEmpleado(Empleado empleado) {
+		this.empleado = empleado;
+	}
+	public Integer getIdagenda() {
+		return idagenda;
+	}
+	public void setIdagenda(Integer idagenda) {
+		this.idagenda = idagenda;
 	}
 	public Integer getHora_ingreso() {
 		return hora_ingreso;
 	}
 	public void setHora_ingreso(Integer hora_ingreso) {
 		this.hora_ingreso = hora_ingreso;
-	}
-	public Integer getHora_salida() {
-		return hora_salida;
-	}
-	public void setHora_salida(Integer hora_salida) {
-		this.hora_salida = hora_salida;
 	}
 	public Date getFecha() {
 		return fecha;
