@@ -11,6 +11,7 @@ import { AreaService } from '../service/area.service';
 export class EditarEmpleadoComponent implements OnInit {
   empleado:any = {}; 
   clinicas:any = [];
+  
 
   constructor(private areaService: AreaService) {
     this.areaService.llenarClinicas().subscribe(req => this.llenarClinicas(req));
