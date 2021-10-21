@@ -1,5 +1,9 @@
 <div class="container">
-  <div class="btn btn-primary mt-2" *ngIf="!nuevo && !employee" (click)="grabarEditar()">Nueva Persona</div>
+  <!---<div class="btn btn-primary mt-2 mr-2" *ngIf="!nuevo && !employee" (click)="grabarEditar()">Nueva Persona</div>
+  <div class="btn btn-success mt-2" *ngIf="!nuevo && !employee" (click)="grabarEditar()">Personas</div>
+  <div class="btn btn-secondary mt-2" *ngIf="!nuevo && !employee" (click)="grabarEditar()">Empleados</div>
+  <div class="btn btn-info mt-2" *ngIf="!nuevo && !employee" (click)="grabarEditar()">Clientes</div>---->
+  <!------------------Form de Persona Nueva------------------->
   <div class="container" *ngIf="nuevo && !employee">
     <span style="text-align:center;">
       <h1>Persona Nueva</h1>
@@ -53,6 +57,7 @@
       </div>
     </div>
   </div>
+  <!------------------------------------Lista de Personas---------------------------->
   <div class="container" *ngIf="!nuevo && !employee">
     <div id="Listado" class="row" style="display: flex; justify-content:center;">
       <div class="col-lg-8"
@@ -71,15 +76,16 @@
               <td>{{persona.nombres}}</td>
               <td>{{persona.apellidos}}</td>
               <td>{{persona.identificacion}}</td>
-              <td><button type="button" class="btn btn-primary" (click)="editarPersona(persona)">Editar</button></td>
-              <td><button type="button" class="btn btn-info">Agregar como cliente</button></td>
-              <td><button type="button" class="btn btn-secondary" (click)="personaEmpleado(persona)">Agregar Como Empleado</button></td>
+              <td><button type="button" class="btn btn-primary" (click)="editarPersona(persona)">Editar Datos de Persona</button></td>
+              <td><button type="button" class="btn btn-info" (click)="personaCliente(persona)">Agregar como cliente</button></td>
+              <td><button type="button" class="btn btn-secondary" (click)="personaEmpleado(persona)">Agregar / Editar Como Empleado</button></td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
   </div>
+  <!------------------------------------------------------------Form Agregar Empleado-------------------------------->
   <div class="container" *ngIf="employee">
     <div class="row">
       <div class="col">
@@ -102,19 +108,19 @@
               <div class="mb-3">
                 <label for="departamento" class="form-label">Area:</label>
                 <select class="form-select" aria-label="Departamento" [(ngModel)]="empleadoNuevo.idarea">
-                  <option value="area.idarea" *ngFor="let area of areas">{{area.area}}</option>
+                  <option [ngValue]="area.idarea" *ngFor="let area of areas">{{area.area}}</option>
                 </select>
               </div>
               <div class="mb-3">
                 <label for="departamento" class="form-label">Clinica:</label>
                 <select class="form-select" aria-label="Departamento" [(ngModel)]="empleadoNuevo.idclinica">
-                  <option *ngFor="let clinica of clinicas" value="clinica.idclinica">{{clinica.clinica}}</option>
+                  <option *ngFor="let clinica of clinicas" [ngValue]="clinica.idclinica">{{clinica.clinica}}</option>
                 </select>
               </div>
               <div class="mb-3">
                 <label for="departamento" class="form-label">Rol:</label>
                 <select class="form-select" aria-label="Departamento" [(ngModel)]="empleadoNuevo.idrol">
-                  <option *ngFor="let rol of roles" value="rol.idrol">{{rol.rol}}</option>
+                  <option *ngFor="let rol of roles" [ngValue]="rol.idrol">{{rol.rol}}</option>
                 </select>
               </div>
               <div>
