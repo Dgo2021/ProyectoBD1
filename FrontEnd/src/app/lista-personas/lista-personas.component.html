@@ -1,85 +1,127 @@
-<br>
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-7">
-      <div class="btn btn-success mb-2" (click)="agregarEmpleado()" *ngIf="!nuevo">Nuevo Empleado</div>
-      <div class="btn btn-danger mb-2" (click)="agregarEmpleado()" *ngIf="nuevo">Cancelar</div>
-      <div class="row" *ngIf='!nuevo'>
-        <div class="col text-center">
-          <div class="card shadow-lg" style="width: 18rem;" *ngFor="let empleado of empleados">
-            <div class="card-body">
-              <h5 class="card-title">{{empleado.persona.nombres}} {{empleado.persona.apellidos}}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">ID del Empleado: {{empleado.idempleado}}</h6>
-              <p class="card-text">Correo Electronico: {{empleado.email}}</p>
-              <button class="btn btn-warning" (click)='editarEmpleado(empleado)'>Editar Datos</button>
-            </div>
-          </div>
+  <div class="btn btn-primary mt-2" *ngIf="!nuevo && !employee" (click)="grabarEditar()">Nueva Persona</div>
+  <div class="container" *ngIf="nuevo && !employee">
+    <span style="text-align:center;">
+      <h1>Persona Nueva</h1>
+    </span>
+    <div id="ingreso" class="row" style="display: flex; justify-content:center; ">
+      <div class="form-group col-lg-5"
+        style="border: 1px solid LightGrey; border-radius:20px; padding: 30px 60px 30px 60px; margin-top:30px;">
+        <div class="mb-3">
+          <label for="clinica" class="form-label">Nombres:</label>
+          <input type="text" class="form-control" placeholder="Nombres" required [(ngModel)]="personaNueva.nombres">
+        </div>
+        <div class="mb-3">
+          <label for="direccion" class="form-label">Apellidos:</label>
+          <input type="text" class="form-control" placeholder="Apellidos" required [(ngModel)]="personaNueva.apellidos">
+        </div>
+        <div class="mb-3">
+          <label for="direccion" class="form-label">Identificacion:</label>
+          <input type="number" class="form-control" placeholder="Identificacion" required
+            [(ngModel)]="personaNueva.identificacion">
+        </div>
+        <div class="mb-3">
+          <label for="direccion" class="form-label">NIT:</label>
+          <input type="text" class="form-control" placeholder="NIT" required [(ngModel)]="personaNueva.nit">
+        </div>
+        <div class="mb-3">
+          <label for="departamento" class="form-label">Genero:</label>
+          <select class="form-select" aria-label="Departamento" [(ngModel)]="personaNueva.genero">
+            <option value="M">Masculino</option>
+            <option value="F">Femenino</option>
+          </select>
+        </div>
+        <div class="form-group mb-3">
+          <label class="form-label">Fecha de Nacimiento:</label>
+          <input type="date" class="form-control" name="personaNueva.fecha_nacimiento"
+            [(ngModel)]="personaNueva.fecha_nacimiento">
+        </div>
+        <div class="mb-3">
+          <label for="direccion" class="form-label">Telefono 1:</label>
+          <input type="number" class="form-control" placeholder="Telefono 1" required
+            [(ngModel)]="personaNueva.telefono1">
+        </div>
+        <div class="mb-3">
+          <label for="direccion" class="form-label">Telefono 2:</label>
+          <input type="number" class="form-control" placeholder="Telefono 2" required
+            [(ngModel)]="personaNueva.telefono2">
+        </div>
+        <div>
+          <button type="button" class="btn btn-primary" style="margin:5px">Grabar</button>
+          <button type="button" class="btn btn-danger" (click)="grabarEditar()">Cancelar</button>
         </div>
       </div>
-      <div class="row justify-content-center" *ngIf='nuevo'>
-        <div class="col">
-          <div class="mb-3">
-            <label class="form-label">Nombres</label>
-            <input type="text" class="form-control" placeholder="Nombres" [(ngModel)]="personaNueva.nombres"
-              name="personaNueva.nombres">
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Apellidos</label>
-            <input type="text" class="form-control" placeholder="Apellidos" [(ngModel)]="personaNueva.apellidos">
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Genero</label>
-            <select class="form-select" aria-label="Default select example" [(ngModel)]="personaNueva.genero"
-              name="personaNueva.genero">
-              <option selected>Seleccione un Genero</option>
-              <option value="M">Masculino</option>
-              <option value="F">Femenino</option>
-            </select>
-            <div class="form-group mb-3">
-              <label class="form-label">Fecha de Nacimiento:</label>
-              <input type="date" class="form-control" [(ngModel)]="personaNueva.fecha_nacimiento"
-                name="personaNueva.fecha_nacimiento">
+    </div>
+  </div>
+  <div class="container" *ngIf="!nuevo && !employee">
+    <div id="Listado" class="row" style="display: flex; justify-content:center;">
+      <div class="col-lg-8"
+        style="border: 1px solid LightGrey; border-radius:20px; padding: 10px 30px 10px 30px; margin-top:30px;">
+        <h2 style="display: flex; justify-content:center; ">Listado de Personas</h2><br>
+        <table class="table table-striped">
+          <thead>
+            <th scope="col">Id</th>
+            <th scope="col">Nombres</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">Identificacion</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let persona of personas">
+              <th scope="row">{{persona.idpersona}}</th>
+              <td>{{persona.nombres}}</td>
+              <td>{{persona.apellidos}}</td>
+              <td>{{persona.identificacion}}</td>
+              <td><button type="button" class="btn btn-primary" (click)="editarPersona(persona)">Editar</button></td>
+              <td><button type="button" class="btn btn-info">Agregar como cliente</button></td>
+              <td><button type="button" class="btn btn-secondary" (click)="personaEmpleado(persona)">Agregar Como Empleado</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="container" *ngIf="employee">
+    <div class="row">
+      <div class="col">
+        <div class="container">
+          <span style="text-align:center;">
+            <h1>Datos del Empleado</h1>
+          </span>
+          <div id="ingreso" class="row" style="display: flex; justify-content:center; ">
+            <div class="form-group col-lg-5"
+              style="border: 1px solid LightGrey; border-radius:20px; padding: 30px 60px 30px 60px; margin-top:30px;">
+              <div class="mb-3">
+                <label for="clinica" class="form-label">Email:</label>
+                <input type="email" class="form-control" placeholder="Email" required [(ngModel)]="empleadoNuevo.email">
+              </div>
+              <div class="mb-3">
+                <label for="direccion" class="form-label">Password:</label>
+                <input type="password" class="form-control" placeholder="Password" required
+                  [(ngModel)]="empleadoNuevo.contrasenia">
+              </div>
+              <div class="mb-3">
+                <label for="departamento" class="form-label">Area:</label>
+                <select class="form-select" aria-label="Departamento" [(ngModel)]="empleadoNuevo.idarea">
+                  <option value="area.idarea" *ngFor="let area of areas">{{area.area}}</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="departamento" class="form-label">Clinica:</label>
+                <select class="form-select" aria-label="Departamento" [(ngModel)]="empleadoNuevo.idclinica">
+                  <option *ngFor="let clinica of clinicas" value="clinica.idclinica">{{clinica.clinica}}</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="departamento" class="form-label">Rol:</label>
+                <select class="form-select" aria-label="Departamento" [(ngModel)]="empleadoNuevo.idrol">
+                  <option *ngFor="let rol of roles" value="rol.idrol">{{rol.rol}}</option>
+                </select>
+              </div>
+              <div>
+                <button type="button" class="btn btn-primary" style="margin:5px" (click)="grabarEmpleado()">Grabar</button>
+                <button type="button" class="btn btn-danger" (click)="cancelarEmpleado()">Cancelar</button>
+              </div>
             </div>
-            <div class="mb-3">
-              <label class="form-label">Identificacion</label>
-              <input type="number" class="form-control" placeholder="Identificacion" [(ngModel)]="personaNueva.identificacion">
-            </div>
-            <div class="mb-3">
-              <label class="form-label">NIT</label>
-              <input type="number" class="form-control" placeholder="NIT" [(ngModel)]="personaNueva.nit">
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Telefono 1</label>
-              <input type="number" class="form-control" placeholder="Telefono 1" [(ngModel)]="personaNueva.telefono1">
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Telefono 2</label>
-              <input type="number" class="form-control" placeholder="Telefono 2" [(ngModel)]="personaNueva.telefono2">
-            </div>
-            <label class="form-label">Asignar Clinica</label>
-            <select class="form-select" aria-label="Default select example" [(ngModel)]="empleadoNuevo.idclinica"
-              name="personaNueva.genero">
-              <option selected>Seleccione un Genero</option>
-              <option value="M">Masculino</option>
-              <option value="F">Femenino</option>
-            </select>
-            <label class="form-label mb-3">Asignar Rol</label>
-            <select class="form-select" aria-label="Default select example" [(ngModel)]="empleadoNuevo.idrol"
-              name="personaNueva.genero">
-              <option selected>Seleccione un Genero</option>
-              <option value="M">Masculino</option>
-              <option value="F">Femenino</option>
-            </select>
-            <div class="mb-3">
-              <label class="form-label">Asigne un E-mail</label>
-              <input type="text" class="form-control" placeholder="E-mail" [(ngModel)]="empleadoNuevo.email">
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Asigne un Password</label>
-              <input type="password" class="form-control" placeholder="Password"
-                [(ngModel)]="empleadoNuevo.contrasenia">
-            </div>
-            <div class="btn btn-primary" (click)="grabarEmpleado(personaNueva,empleadoNuevo)">Grabar</div>
           </div>
         </div>
       </div>
