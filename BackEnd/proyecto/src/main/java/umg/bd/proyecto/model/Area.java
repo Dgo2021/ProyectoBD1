@@ -14,8 +14,15 @@ public class Area implements Serializable {
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Integer idarea;
+	private Integer idclinica;
 	private String area;
 	
+	public Integer getIdclinica() {
+		return idclinica;
+	}
+	public void setIdclinica(Integer idclinica) {
+		this.idclinica = idclinica;
+	}
 	public Integer getIdarea() {
 		return idarea;
 	}

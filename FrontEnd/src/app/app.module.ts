@@ -11,6 +11,8 @@ import { ListaPersonasComponent } from './lista-personas/lista-personas.componen
 import { FacturaComponent } from './factura/factura.component';
 import { EditarEmpleadoComponent } from './editar-empleado/editar-empleado.component';
 import { ClinicaComponent } from './clinica/clinica.component';
+import { AgendaComponent } from './agenda/agenda.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { ClinicaComponent } from './clinica/clinica.component';
     ListaPersonasComponent,
     FacturaComponent,
     EditarEmpleadoComponent,
-    ClinicaComponent
+    ClinicaComponent,
+    AgendaComponent
   ],
   imports: [
     BrowserModule,

@@ -23,14 +23,21 @@ public class Empleado implements Serializable {
 	private Integer idempleado;
 	//private Integer idpersona;
 	private Integer idclinica;
+	private Integer idarea;
 	private Integer idrol;
 	private String contrasenia;
 	private String email;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "idpersona", referencedColumnName = "idpersona")
 	private Persona persona;
 	
+	public Integer getIdarea() {
+		return idarea;
+	}
+	public void setIdarea(Integer idarea) {
+		this.idarea = idarea;
+	}
 	public Persona getPersona() {
 		return persona;
 	}

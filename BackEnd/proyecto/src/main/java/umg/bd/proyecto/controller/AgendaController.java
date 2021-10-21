@@ -1,11 +1,15 @@
 package umg.bd.proyecto.controller;
 
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import umg.bd.proyecto.model.Agenda;
@@ -28,4 +32,8 @@ public class AgendaController {
 	    return agendaRepository.save(agenda);
 	  }
 	  
+	  @GetMapping(path="")
+	  List<Agenda> findByFechaAndIdclinica(@RequestParam Date fecha, @RequestParam Integer idclinica, Integer idarea){
+		  return agendaRepository.findByFechaAndIdclinicaAndIdarea(fecha, idclinica,idarea);
+	  }
 }
