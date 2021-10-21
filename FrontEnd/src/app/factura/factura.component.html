@@ -3,23 +3,24 @@
     <h1 class="displey-5">Servicios de Fisioterapia, S.A.</h1>
     <p>Calzada San José 7-22 Zona 2, San José Pinula, Guatemala</p>
     <hr>
-    <section class="row" style="display: flex; justify-content:center; ">
-        <div class="col text-center">
+    <section class="row">
+        <div class="col">
             <div class="card">
                 <div card="card-header">
                     <br>
-                    <h3 class="card-title">FACTURA</h3>
+                    <h3 class="card-title text-center">FACTURA</h3>
                     <hr>
-                    <h2>Servicios de Fisioterapia, S.A.</h2>
-                    <p>Nit: 123456k</p>
-                    <p>Teléfono: 1234-5678</p>
-                    <p>Calzada San José 7-22 Zona 2, San José Pinula, Guatemala</p>
-                    
+                    <h2 class="text-center">Servicios de Fisioterapia, S.A.</h2>
+                    <p class="text-center">Calzada San José 7-22 Zona 2, San José Pinula, Guatemala</p>
+                    <p class="text-center">Nit: 123456k</p>
+                    <p class="text-center">Teléfono: 1234-5678</p>
+
+
                 </div>
                 <div class="card-body">
-                    <form class="row" style="display: flex; justify-content:center; ">
+                    <form class="row">
                         <div class="form-group col-md-3">
-                            <label for="">Numero Factura:</label>
+                            <label for="">Número Factura:</label>
                             <input type="text" class="form-control" placeholder="123456">
                         </div>
                         <div class="form-group col-md-3">
@@ -34,16 +35,12 @@
                             <label for="">Fecha Emisión:</label>
                             <input type="date" class="form-control">
                         </div>
-                        <div class="form-group col-md-4" >
+                        <div class="form-group col-md-9">
                             <label for="">Nombre:</label>
                             <input type="text" class="form-control">
                         </div>
-                        <div class="form-group col-md-2" >
+                        <div class="form-group col-md-3">
                             <label for="">Teléfono:</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="form-group col-md-2" >
-                            <label for="">Total:</label>
                             <input type="text" class="form-control">
                         </div>
 
@@ -53,19 +50,49 @@
         </div>
     </section>
 
-    <section class="row">
-        <div class="col text-center">
+    <section class="row mt-1">
+        <div class="col">
             <div class="card">
                 <div class="card-body">
                     <form class="row" style="display: flex; justify-content:center; ">
-                        <div class="form-group col-md-2"><label for="">Cantidad</label><input type="text" class="form-control"></div>
-                        <div class="form-group col-md-5"><label for="">Descripción</label><input type="text" class="form-control"></div>
-                        <div class="form-group col-md-2"><label for=""></label>Precio Total<input type="text" class="form-control"></div>
+                        <div class="form-group col-md-2"><label for="">Cantidad</label><input type="text"
+                                class="form-control"></div>
+                        <div class="form-group col-md-5"><label for="">Descripción</label>
+                            <select id="selectServicio" class="form-control">
+                                <option value="0">--Seleccione--</option>
+                                <option value="1"></option>
+
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2"><label for=""></label>Precio Unitario<input type="text"
+                                class="form-control"></div>
+                        <div class="form-group col-md-2"><label for=""></label>Precio Total<input type="text"
+                                class="form-control"></div>
+                        <div class="form-group col-md-1" style="display: flex; align-items: center;">
+                            <button class="bt btn-primary" style="border-radius:5px;">
+                                Agregar
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
 
+    </section>
+
+    <section class="row mt-1">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Cantidad</th>
+                        <th>Descripción</th>
+                        <th>Precio Unitario</th>
+                        <th>Precio Total</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
     </section>
 
 
