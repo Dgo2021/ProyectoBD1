@@ -16,4 +16,16 @@ export class EmpleadoService {
   getByIdClinicaAndIdArea(idclinica:number, idarea:number){
     return this.http.get<Empleado[]>(this.URL+"?idclinica="+idclinica+"&idarea="+idarea);
   }
+  listaEmpleados(){
+    return this.http.get<any>(this.URL+'/all').pipe(catchError(e => "error"));
+  }
+  grabarEmpleado(empleado:any){
+    var httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':'application/json'
+      })
+    }
+    return this.http.post<any>(this.URL+'/grabar',empleado,httpOptions);
+  }
+
 }
