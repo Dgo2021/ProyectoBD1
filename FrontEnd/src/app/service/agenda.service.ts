@@ -12,9 +12,17 @@ export class AgendaService {
   private URL = 'http://localhost:8080/agenda';
   constructor(private http:HttpClient) { }
 
-  getAgendaByFechaIdClinicaIdArea(fecha:Date, idclinica:number, idarea:number){
+  getAgendaByFechaIdClinicaIdArea(fecha:any, idclinica:number, idarea:number){
+    let anio=fecha.substring(0,4);
+    let mes=fecha.substring(5,7);
+    let dia=parseInt(fecha.substring(8,11));
+    
+    let fecha1=mes+'/'+dia+'/'+anio;
+    let fecha2=mes+'/'+(dia+1)+'/'+anio;
+    //console.log(fecha1+' '+fecha2);
     return this.http.get<Agenda[]>(this.URL+
-      '?fecha='+formatDate(fecha, 'MM/dd/yyyy','en')
+      '?fecha1='+fecha1
+      +'&fecha2='+fecha2
       +"&idclinica="+idclinica+"&idarea="+idarea);
   }
 
@@ -27,3 +35,4 @@ export class AgendaService {
     return this.http.post<any>(this.URL+'/grabar',agenda,httpOptions);
   };
 }
+
