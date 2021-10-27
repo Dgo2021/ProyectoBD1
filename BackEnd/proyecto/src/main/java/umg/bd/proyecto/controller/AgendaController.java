@@ -1,5 +1,7 @@
 package umg.bd.proyecto.controller;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -31,9 +33,17 @@ public class AgendaController {
 	  Agenda save(@RequestBody Agenda agenda) {
 	    return agendaRepository.save(agenda);
 	  }
-	  
+	  /*
 	  @GetMapping(path="")
 	  List<Agenda> findByFechaAndIdclinica(@RequestParam Date fecha, @RequestParam Integer idclinica, Integer idarea){
 		  return agendaRepository.findByFechaAndIdclinicaAndIdarea(fecha, idclinica,idarea);
 	  }
+	  */
+	  @GetMapping(path="")
+	  List<Agenda> findByIdclinicaIdAreaFecha(@RequestParam Date fecha1, @RequestParam Date fecha2, @RequestParam Integer idclinica, Integer idarea){
+		  System.out.println(fecha1);
+		  System.out.println(fecha2);
+		  return agendaRepository.findByIdclinicaAndIdareaAndFechaBetween(idclinica, idarea, fecha1, fecha2);
+	  }
+	  
 }

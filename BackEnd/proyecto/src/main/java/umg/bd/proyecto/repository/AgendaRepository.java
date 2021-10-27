@@ -8,5 +8,6 @@ import umg.bd.proyecto.model.Agenda;
 
 public interface AgendaRepository extends CrudRepository<Agenda, Long> {
 	List<Agenda> findByFechaAndIdclinicaAndIdarea(Date fecha, Integer clinica, Integer Area);
+	List<Agenda> findByIdclinicaAndIdareaAndFechaBetween (Integer idclinica, Integer idarea, Date fecha1, Date fecha2);
 }
 

@@ -37,6 +37,7 @@ export class AgendaComponent implements OnInit {
   clientesSelectedValue:any=0;
   areasSelectedValue:any=0;
   serviciosSelectedValue:any=0;
+  horarioSelectedValue:any=0;
 
   clinicas:Clinica[] = [];
   areas:Area[]=[];
@@ -85,6 +86,10 @@ export class AgendaComponent implements OnInit {
     this.serviciosSelectedValue=ev;
   }
 
+  horarioSelectValue(ev:any){
+    this.horarioSelectedValue=ev;
+  }
+
   buscarAgenda(){
     this.agendaServices.getAgendaByFechaIdClinicaIdArea(this.fecha,this.clinicasSelectedValue, this.areasSelectedValue)
       .subscribe(data => this.getAgenda(data));
@@ -92,23 +97,25 @@ export class AgendaComponent implements OnInit {
 
   getAgenda(data:Agenda[]){
     this.citas=[];
-    this.getEmpleados(data);
-    this.empleados.forEach(empleado => {
-      var cita = new Cita(empleado);
-      this.citas.push(cita);
-      data.filter( value => value.empleado.idempleado===empleado.idempleado)
-        .forEach( agenda => {
-          cita.citas.push(agenda);
+    this.empleadoService.getByIdClinicaAndIdArea(this.clinicasSelectedValue, this.areasSelectedValue)
+    .subscribe( emp => {
+      this.empleados=emp;
+      this.empleados.forEach(empleado => {
+        var cita = new Cita(empleado);
+        this.citas.push(cita);
+        data.filter( value => value.empleado.idempleado===empleado.idempleado).forEach( agenda => {
+            cita.citas.push(agenda);
+        });
       });
-    });
     this.showCitas=true;
+    });
   }
 
   getEmpleados(data:Agenda[]){
-    data.forEach( value =>{
-      if (this.empleados.filter ( empleado => empleado.idempleado===value.empleado.idempleado).length==0)
-        this.empleados.push(value.empleado);
-    });
+    this.empleadoService.getByIdClinicaAndIdArea(this.clinicasSelectedValue, this.areasSelectedValue)
+      .subscribe( emp => {
+        this.empleados=emp;
+      });
   }
 
   counter(i: number) {
@@ -127,16 +134,29 @@ export class AgendaComponent implements OnInit {
   guardarCita(){
     var agenda = {} as Agenda;
     agenda.idagenda=0;
-    agenda.fecha=this.fecha;
+
+    agenda.fecha=new Date(this.fecha+'T00:00:00');
     agenda.idclinica=this.clinicas.filter(c => c.idclinica===this.clinicasSelectedValue)[0].idclinica;
     agenda.idarea=this.areas.filter(a => a.idarea===this.areasSelectedValue)[0].idarea;
     agenda.empleado=this.empleado;
     agenda.cliente=this.clientes.filter(c => c.idcliente===this.clientesSelectedValue)[0];
     agenda.servicio=this.servicios.filter(s => s.idservicio===this.serviciosSelectedValue)[0];
     agenda.estado=this.estados[0];
-    agenda.hora_ingreso=9;
-    console.log(JSON.stringify(agenda));
-    this.agendaServices.grabar(agenda).subscribe(data => console.log(data));
+    agenda.hora_ingreso=this.horarioSelectedValue;
+    this.agendaServices.grabar(agenda).subscribe();
+    //this.buscarAgenda();
+    this.cancelarCita();
+    this.showIngreso=false;
+    this.showCitas=false;
+    
+    
+  }
+
+  cancelarCita(){
+    this.showIngreso=false; this.showCitas=true;
+    this.clientesSelectedValue=-1;
+    this.serviciosSelectedValue=-1;
+    this.horarioSelectedValue=-1;
   }
  
 }
