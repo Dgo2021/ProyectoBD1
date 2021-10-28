@@ -1,10 +1,8 @@
 package umg.bd.proyecto.controller;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+
 import java.util.Date;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,9 +39,7 @@ public class AgendaController {
 	  */
 	  @GetMapping(path="")
 	  List<Agenda> findByIdclinicaIdAreaFecha(@RequestParam Date fecha1, @RequestParam Date fecha2, @RequestParam Integer idclinica, Integer idarea){
-		  System.out.println(fecha1);
-		  System.out.println(fecha2);
-		  return agendaRepository.findByIdclinicaAndIdareaAndFechaBetween(idclinica, idarea, fecha1, fecha2);
+		  return agendaRepository.findByIdclinicaAndIdareaAndFechaBetweenOrderByHoraingresoAsc(idclinica, idarea, fecha1, fecha2);
 	  }
 	  
 }
