@@ -1,0 +1,157 @@
+prompt --application/pages/page_00026
+begin
+--   Manifest
+--     PAGE: 00026
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.0-18'
+,p_default_workspace_id=>39640138122777806000
+,p_default_application_id=>50198
+,p_default_id_offset=>0
+,p_default_owner=>'WKSP_PROYECTOBD1'
+);
+wwv_flow_api.create_page(
+ p_id=>26
+,p_user_interface_id=>wwv_flow_api.id(5600472835796395635)
+,p_name=>'Empleado'
+,p_alias=>'EMPLEADO1'
+,p_step_title=>'Empleado'
+,p_autocomplete_on_off=>'OFF'
+,p_page_template_options=>'#DEFAULT#'
+,p_protection_level=>'C'
+,p_last_updated_by=>'DCHINCHILLAS2@MIUMG.EDU.GT'
+,p_last_upd_yyyymmddhh24miss=>'20211026055607'
+);
+wwv_flow_api.create_page_plug(
+ p_id=>wwv_flow_api.id(5923180831319316493)
+,p_plug_name=>'Informe 1'
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_api.id(5600371244069395593)
+,p_plug_display_sequence=>10
+,p_query_type=>'TABLE'
+,p_query_table=>'EMPLEADO'
+,p_include_rowid_column=>false
+,p_plug_source_type=>'NATIVE_IR'
+,p_prn_page_header=>'Informe 1'
+);
+wwv_flow_api.create_worksheet(
+ p_id=>wwv_flow_api.id(5923181267760316493)
+,p_name=>'Informe 1'
+,p_max_row_count_message=>unistr('El recuento m\00E1ximo de filas de este informe es #MAX_ROW_COUNT# filas. Aplique un filtro para reducir el n\00FAmero de registros de la consulta.')
+,p_no_data_found_message=>unistr('No se ha encontrado ning\00FAn dato.')
+,p_pagination_type=>'ROWS_X_TO_Y'
+,p_pagination_display_pos=>'BOTTOM_RIGHT'
+,p_report_list_mode=>'TABS'
+,p_lazy_loading=>false
+,p_show_detail_link=>'C'
+,p_download_formats=>'CSV:HTML:XLSX:PDF'
+,p_enable_mail_download=>'Y'
+,p_detail_link=>'f?p=&APP_ID.:27:&SESSION.::&DEBUG.:RP:P27_IDEMPLEADO:\#IDEMPLEADO#\'
+,p_detail_link_text=>'<span aria-label="Editar"><span class="fa fa-edit" aria-hidden="true" title="Editar"></span></span>'
+,p_owner=>'DCHINCHILLAS2@MIUMG.EDU.GT'
+,p_internal_uid=>5923181267760316493
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(5923181332611316494)
+,p_db_column_name=>'IDEMPLEADO'
+,p_display_order=>1
+,p_column_identifier=>'A'
+,p_column_label=>'Idempleado'
+,p_column_type=>'NUMBER'
+,p_display_text_as=>'HIDDEN_ESCAPE_SC'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(5923181704627316494)
+,p_db_column_name=>'IDPERSONA'
+,p_display_order=>2
+,p_column_identifier=>'B'
+,p_column_label=>'Nombre'
+,p_column_type=>'NUMBER'
+,p_display_text_as=>'LOV_ESCAPE_SC'
+,p_heading_alignment=>'LEFT'
+,p_rpt_named_lov=>wwv_flow_api.id(5923847105283344033)
+,p_rpt_show_filter_lov=>'1'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(5923182149614316494)
+,p_db_column_name=>'IDCLINICA'
+,p_display_order=>3
+,p_column_identifier=>'C'
+,p_column_label=>unistr('Cl\00EDnica')
+,p_column_type=>'NUMBER'
+,p_display_text_as=>'LOV_ESCAPE_SC'
+,p_heading_alignment=>'LEFT'
+,p_rpt_named_lov=>wwv_flow_api.id(5921008310717293840)
+,p_rpt_show_filter_lov=>'1'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(5923182559342316495)
+,p_db_column_name=>'IDAREA'
+,p_display_order=>4
+,p_column_identifier=>'D'
+,p_column_label=>unistr('\00C1rea')
+,p_column_type=>'NUMBER'
+,p_display_text_as=>'LOV_ESCAPE_SC'
+,p_heading_alignment=>'LEFT'
+,p_rpt_named_lov=>wwv_flow_api.id(5921629089701314780)
+,p_rpt_show_filter_lov=>'1'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(5923182946313316495)
+,p_db_column_name=>'IDROL'
+,p_display_order=>5
+,p_column_identifier=>'E'
+,p_column_label=>'Rol'
+,p_column_type=>'NUMBER'
+,p_display_text_as=>'LOV_ESCAPE_SC'
+,p_heading_alignment=>'LEFT'
+,p_rpt_named_lov=>wwv_flow_api.id(5920913012073276345)
+,p_rpt_show_filter_lov=>'1'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(5923183398307316495)
+,p_db_column_name=>'CONTRASENIA'
+,p_display_order=>6
+,p_column_identifier=>'F'
+,p_column_label=>'Contrasenia'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_security_scheme=>wwv_flow_api.id(5600476050899395639)
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(5923183779033316495)
+,p_db_column_name=>'EMAIL'
+,p_display_order=>7
+,p_column_identifier=>'G'
+,p_column_label=>'Email'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_rpt(
+ p_id=>wwv_flow_api.id(5923532294448363784)
+,p_application_user=>'APXWS_DEFAULT'
+,p_report_seq=>10
+,p_report_alias=>'59235323'
+,p_status=>'PUBLIC'
+,p_is_default=>'Y'
+,p_report_columns=>'IDEMPLEADO:IDPERSONA:IDCLINICA:IDAREA:IDROL:CONTRASENIA:EMAIL'
+);
+wwv_flow_api.create_page_button(
+ p_id=>wwv_flow_api.id(5923184923542316496)
+,p_button_sequence=>30
+,p_button_plug_id=>wwv_flow_api.id(5923180831319316493)
+,p_button_name=>'CREATE'
+,p_button_action=>'REDIRECT_PAGE'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_api.id(5600448188453395624)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Crear'
+,p_button_position=>'RIGHT_OF_IR_SEARCH_BAR'
+,p_button_redirect_url=>'f?p=&APP_ID.:27:&SESSION.::&DEBUG.:27'
+);
+wwv_flow_api.component_end;
+end;
+/
