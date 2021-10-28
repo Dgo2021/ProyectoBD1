@@ -28,7 +28,7 @@ public class Empleado implements Serializable {
 	private String contrasenia;
 	private String email;
 	
-	@OneToOne(cascade = CascadeType.PERSIST)
+	@OneToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "idpersona", referencedColumnName = "idpersona")
 	private Persona persona;
 	

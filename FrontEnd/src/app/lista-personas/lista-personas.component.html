@@ -1,9 +1,10 @@
 <div class="container">
-  <!---<div class="btn btn-primary mt-2 mr-2" *ngIf="!nuevo && !employee" (click)="grabarEditar()">Nueva Persona</div>
+  <!---
   <div class="btn btn-success mt-2" *ngIf="!nuevo && !employee" (click)="grabarEditar()">Personas</div>
   <div class="btn btn-secondary mt-2" *ngIf="!nuevo && !employee" (click)="grabarEditar()">Empleados</div>
   <div class="btn btn-info mt-2" *ngIf="!nuevo && !employee" (click)="grabarEditar()">Clientes</div>---->
   <!------------------Form de Persona Nueva------------------->
+  <div class="btn btn-primary mt-2 mr-2" *ngIf="!nuevo && !employee" (click)="grabarEditar()">Nueva Persona</div>
   <div class="container" *ngIf="nuevo && !employee">
     <span style="text-align:center;">
       <h1>Persona Nueva</h1>
@@ -51,7 +52,7 @@
             [(ngModel)]="personaNueva.telefono2">
         </div>
         <div>
-          <button type="button" class="btn btn-primary" style="margin:5px">Grabar</button>
+          <button type="button" class="btn btn-primary" style="margin:5px" (click)="nuevaPersona(personaNueva)">Grabar</button>
           <button type="button" class="btn btn-danger" (click)="grabarEditar()">Cancelar</button>
         </div>
       </div>

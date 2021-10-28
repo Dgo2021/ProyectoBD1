@@ -10,9 +10,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
-        </li>
+        
         <li class="nav-item active">
           <a class="nav-link" routerLink="/area" routerLinkActive="active">Area</a>
         </li>
@@ -28,9 +26,45 @@
         <li class="nav-item active">
           <a class="nav-link" routerLink="/agenda" routerLinkActive="active">Agenda</a>
         </li>
+        <li class="nav-item active">
+          <a class="btn" (click)='logout()' routerLinkActive="active" *ngIf='usuarioLogueado'>Cerrar Sesion</a>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
+<div class="container" *ngIf='!usuarioLogueado'>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="row">
+      <div class="col-md-4 mx-auto">
+          <div class="card">
+              <div class="card-header">
+                  Ingreso al Sistema
+              </div>
+              <div class="card-body">
+                  <form (submit)="login()">
+                      <div class="form-group">
+                          <input type="text" [(ngModel)]="user.email" name="email" class="form-control" placeholder="Email" required autofocus>
+                      </div>
+                      <br>
+                      <div class="form-group">
+                          <input type="password" [(ngModel)]="user.password" name="password" class="form-control" placeholder="Password" required>
+                      </div>
+                      <br>
+                      <button class="btn btn-success btn-block">
+                          Ingresar!
+                      </button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+
+</div>
 
 <router-outlet></router-outlet>

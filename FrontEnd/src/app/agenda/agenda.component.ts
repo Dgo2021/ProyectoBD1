@@ -14,6 +14,7 @@ import { Servicio } from '../models/Servicio.interface';
 import { ServicioService } from '../service/servicio.service';
 import { AgendaEstadoService } from '../service/agenda-estado.service';
 import { Agenda_Estado } from '../models/Agenda_Estado.interface';
+import { AppComponent } from '../app.component';
 
 class Cita{
   empleado:Empleado;
@@ -59,8 +60,19 @@ export class AgendaComponent implements OnInit {
   constructor(private clinicaService:ClinicaService, private areaService:AreaService,
     private empleadoService:EmpleadoService, private agendaServices:AgendaService,
     private clienteService:ClienteService, private servicioService:ServicioService,
-    private agendaEstadoService:AgendaEstadoService) { 
+    private agendaEstadoService:AgendaEstadoService, private appComponent: AppComponent) { 
       var today =  new Date();
+      if (localStorage.getItem('user') != null) {
+        let usuario = JSON.parse(localStorage.getItem('user') || '{}');
+        if (usuario.idrol == 1 || 3 || 2) {
+          this.appComponent.usuarioLogueado = true;
+        } else {
+          alert('No tiene acceso a este sitio');
+          location.href='/'
+        }
+      }else{
+        location.href='/';
+      }
     }
 
   ngOnInit(): void {

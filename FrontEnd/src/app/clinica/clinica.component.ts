@@ -3,6 +3,7 @@ import { ClinicaService } from '../service/clinica.service';
 import { Clinica } from '../models/Clinica.interface';
 import { Departamento } from '../models/Departamento.interface';
 import { DepartamentoService } from '../service/departamento.service';
+import { AppComponent } from '../app.component';
 @Component({
   selector: 'app-clinica',
   templateUrl: './clinica.component.html',
@@ -15,7 +16,19 @@ export class ClinicaComponent implements OnInit {
   clinicas:Clinica[]=[];
   clinica:Clinica = {} as Clinica;
 
-  constructor(private clinicaService:ClinicaService, private deptoService:DepartamentoService) { }
+  constructor(private clinicaService:ClinicaService, private deptoService:DepartamentoService, private appComponent: AppComponent) { 
+    if (localStorage.getItem('user') != null) {
+      let usuario = JSON.parse(localStorage.getItem('user') || '{}');
+      if (usuario.idrol == 1) {
+        this.appComponent.usuarioLogueado = true;
+      } else {
+        alert('No tiene acceso a este sitio');
+        location.href='/'
+      }
+    }else{
+      location.href='/';
+    }
+  }
     
   ngOnInit(): void {
     this.deptoService.getAll().subscribe(data => this.getDepartamentos(data));

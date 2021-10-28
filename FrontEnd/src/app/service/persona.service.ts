@@ -22,6 +22,15 @@ export class PersonaService {
   listaPersonas(){
     return this.http.get<any>(this.URL+"/all").pipe(catchError(e => 'error'));
   }
+  grabarPersona(persona:any){
+    var httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':'application/json'
+      })
+    }
+    return this.http.post<any>(this.URL+'/grabar',persona,httpOptions);
+  }
+
 
 
 

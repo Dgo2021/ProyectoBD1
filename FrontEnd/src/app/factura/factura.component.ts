@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Empleado } from '../models/Empleado.interface';
 import { EmpleadoService } from '../service/empleado.service';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-factura',
@@ -17,8 +18,18 @@ export class FacturaComponent implements OnInit {
   clinicas: any = [];
   
 
-  constructor(private empleadoService: EmpleadoService) {
-    
+  constructor(private empleadoService: EmpleadoService, private appComponent: AppComponent) {
+    if (localStorage.getItem('user') != null) {
+      let usuario = JSON.parse(localStorage.getItem('user') || '{}');
+      if (usuario.idrol == 1 || 3) {
+        this.appComponent.usuarioLogueado = true;
+      } else {
+        alert('No tiene acceso a este sitio');
+        location.href='/'
+      }
+    }else{
+      location.href='/';
+    }
    }
 
   ngOnInit(): void {
