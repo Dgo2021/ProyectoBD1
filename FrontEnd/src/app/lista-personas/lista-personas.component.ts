@@ -49,22 +49,31 @@ export class ListaPersonasComponent implements OnInit {
   ngOnInit(): void {
   }
   personaCliente(persona: any) {
-    let pep = persona;
+    let num = 0;
     this.clientes.forEach((element: any) => {
+      if(element.persona.idpersona === persona.idpersona){
+        alert("usuario ya existe")
+      }
+      
+    });
+    
+    /*this.clientes.forEach((element: any) => {
       if (element.persona.idpersona === pep.idpersona) {
         alert('Este usuario ya es un cliente activo!')
-        location.href = "/personas"
+        this.clienteService.getAll().subscribe(req => this.listaClientes(req));
+        //location.href = "/personas"
       } else {
         this.cliente.idcliente = 0;
         this.cliente.persona = pep;
         console.log(this.cliente)
         this.clienteService.grabarCliente(this.cliente).subscribe(req => this.clienteGrabado());
       }
-    })
+    })*/
   }
   clienteGrabado() {
     alert('Cliente Grabado!');
-    location.href = '/personas';
+    this.clienteService.getAll().subscribe(req => this.listaClientes(req));
+    //location.href = '/personas';
   }
   grabarEmpleado() {
     if (this.empleadoNuevo.idempleado === null) {

@@ -3,6 +3,7 @@ package umg.bd.proyecto.model;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,20 +21,10 @@ public class Agenda implements Serializable {
 	private Integer idagenda;
 	private Integer idclinica;
 	private Integer idarea;
-	public Integer getIdclinica() {
-		return idclinica;
-	}
-	public void setIdclinica(Integer idclinica) {
-		this.idclinica = idclinica;
-	}
-	public Integer getIdarea() {
-		return idarea;
-	}
-	public void setIdarea(Integer idarea) {
-		this.idarea = idarea;
-	}
-	private Integer hora_ingreso;
+	@Column(name="hora_ingreso")
+	private Integer horaingreso;
 	private Date fecha;
+	
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "idempleado", referencedColumnName = "idempleado")
@@ -51,6 +42,24 @@ public class Agenda implements Serializable {
 	@JoinColumn(name = "idestado", referencedColumnName = "idestado")
 	private Agenda_Estado estado;
 	
+	public Integer getIdclinica() {
+		return idclinica;
+	}
+	public Integer getHoraingreso() {
+		return horaingreso;
+	}
+	public void setHoraingreso(Integer horaingreso) {
+		this.horaingreso = horaingreso;
+	}
+	public void setIdclinica(Integer idclinica) {
+		this.idclinica = idclinica;
+	}
+	public Integer getIdarea() {
+		return idarea;
+	}
+	public void setIdarea(Integer idarea) {
+		this.idarea = idarea;
+	}	
 	public Agenda_Estado getEstado() {
 		return estado;
 	}
@@ -80,12 +89,6 @@ public class Agenda implements Serializable {
 	}
 	public void setIdagenda(Integer idagenda) {
 		this.idagenda = idagenda;
-	}
-	public Integer getHora_ingreso() {
-		return hora_ingreso;
-	}
-	public void setHora_ingreso(Integer hora_ingreso) {
-		this.hora_ingreso = hora_ingreso;
 	}
 	public Date getFecha() {
 		return fecha;

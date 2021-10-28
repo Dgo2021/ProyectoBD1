@@ -33,10 +33,9 @@
 					</tr>
 					<tr *ngFor="let cita of citas">
 						<td class="cita-empleado">{{cita.empleado.persona.nombres}}</td>
-						<td *ngFor="let agenda of cita.citas"
-							[ngClass]="'cita '+'cita-'+agenda.estado.estado" >
-							<span style="font-weight: bold;">{{agenda.hora_ingreso+':00'}}</span><br>{{agenda.cliente.persona.nombres}}
-							<br>{{agenda.servicio.servicio}} <br>{{agenda.estado.estado+agenda.estado.idestado}}
+						<td *ngFor="let agenda of cita.citas" [ngClass]="'cita '+'cita-'+agenda.estado.estado" >
+							<a [routerLink]="" (click)="cambiarEstado(agenda);"><span style="font-weight: bold;">{{agenda.horaingreso+':00'}}</span><br>{{agenda.cliente.persona.nombres}}
+							<br>{{agenda.servicio.servicio}} <br>{{agenda.estado.estado+agenda.estado.idestado}}</a>
 						</td>
 						<td class="cita" *ngFor="let n of this.counter(10-cita.citas.length); let index = index"></td>
 						<td class="cita-boton">
@@ -66,8 +65,55 @@
 				</select>
 			</div>
 			<div class="mb-3">
+				<label for="">Horario:</label>
+				<select class="form-select"  aria-label="Horario" [ngModel]="this.horarioSelectedValue" (ngModelChange)="this.horarioSelectValue($event) " required>
+					<option value=8>8:00-9:00</option>
+					<option value=9>9:00-10:00</option>
+					<option value=10>10:00-11:00</option>
+					<option value=11>11:00-12:00</option>
+					<option value=12>12:00-13:00</option>
+					<option value=13>13:00-14:00</option>
+					<option value=14>14:00-15:00</option>
+					<option value=15>15:00-16:00</option>
+					<option value=16>16:00-17:00</option>
+				</select>
+			</div>
+			<div class="mb-3">
 				<button type="button" class="btn btn-primary"(click)="guardarCita()" >Guardar</button>
-				<button type="button" class="btn btn-danger" style="margin-left: 5px;" (click)="this.showIngreso=false; this.showCitas=true;" >Cancelar</button>
+				<button type="button" class="btn btn-danger" style="margin-left: 5px;" (click)="cancelarCita()" >Cancelar</button>
+			</div>
+		</div>
+	</div>
+	<div class="row" style="display: flex; justify-content:center;" >
+		<div class="col-lg-5" style="border: 1px solid LightGrey; border-radius:20px; padding: 30px 30px 30px 30px; margin-top:30px;">
+			<div class="mb-3">
+				<label for="empleado" class="form-label" >Empleado</label>
+				<input type="text" class="form-control" id="empleado"  readonly>
+			</div>
+			<div class="mb-3">
+				<label for="empleado" class="form-label" >Cliente</label>
+				<input type="text" class="form-control" id="cliente"  readonly>
+			</div>
+			<div class="mb-3">
+				<label for="empleado" class="form-label" >Telefono</label>
+				<input type="text" class="form-control" id="telefono"  readonly>
+			</div>
+			<div class="mb-3">
+				<label for="empleado" class="form-label" >Servicio</label>
+				<input type="text" class="form-control" id="servicio"  readonly>
+			</div>
+			<div class="mb-3">
+				<label for="empleado" class="form-label" >Horario</label>
+				<input type="text" class="form-control" id="horario"  readonly>
+			</div>
+			<div class="mb-3">
+				<label for="">Estado:</label>
+				<select class="form-select"  aria-label="estado" [ngModel]="this.estadoSelectedValue" (ngModelChange)="this.estadoSelectValue($event) " required>
+					<option value=2>Confirmado</option>
+					<option value=3>Realizado</option>
+					<option value=4>Pagado</option>
+					<option value=5>Cancelado</option>
+				</select>
 			</div>
 		</div>
 	</div>
