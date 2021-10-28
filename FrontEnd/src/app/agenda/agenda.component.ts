@@ -39,6 +39,7 @@ export class AgendaComponent implements OnInit {
   areasSelectedValue:any=0;
   serviciosSelectedValue:any=0;
   horarioSelectedValue:any=0;
+  estadoSelectedValue:any=0;
 
   clinicas:Clinica[] = [];
   areas:Area[]=[];
@@ -102,6 +103,10 @@ export class AgendaComponent implements OnInit {
     this.horarioSelectedValue=ev;
   }
 
+  estadoSelectValue(ev:any){
+    this.estadoSelectedValue=ev;
+  }
+
   buscarAgenda(){
     this.agendaServices.getAgendaByFechaIdClinicaIdArea(this.fecha,this.clinicasSelectedValue, this.areasSelectedValue)
       .subscribe(data => this.getAgenda(data));
@@ -154,7 +159,7 @@ export class AgendaComponent implements OnInit {
     agenda.cliente=this.clientes.filter(c => c.idcliente===this.clientesSelectedValue)[0];
     agenda.servicio=this.servicios.filter(s => s.idservicio===this.serviciosSelectedValue)[0];
     agenda.estado=this.estados[0];
-    agenda.hora_ingreso=this.horarioSelectedValue;
+    agenda.horaingreso=this.horarioSelectedValue;
     this.agendaServices.grabar(agenda).subscribe();
     //this.buscarAgenda();
     this.cancelarCita();
@@ -169,6 +174,10 @@ export class AgendaComponent implements OnInit {
     this.clientesSelectedValue=-1;
     this.serviciosSelectedValue=-1;
     this.horarioSelectedValue=-1;
+  }
+
+  cambiarEstado(agenda:any){
+    console.log(agenda);
   }
  
 }

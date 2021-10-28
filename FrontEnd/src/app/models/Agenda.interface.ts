@@ -7,7 +7,7 @@ export interface Agenda{
     idagenda:number;
     idclinica:number;
     idarea:number;
-    hora_ingreso:number;
+    horaingreso:number;
     fecha:Date;
     empleado:Empleado;
     cliente:Cliente;
