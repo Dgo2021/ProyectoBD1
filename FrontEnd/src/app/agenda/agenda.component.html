@@ -35,7 +35,7 @@
 						<td class="cita-empleado">{{cita.empleado.persona.nombres}}</td>
 						<td *ngFor="let agenda of cita.citas" [ngClass]="'cita '+'cita-'+agenda.estado.estado" >
 							<a [routerLink]="" (click)="cambiarEstado(agenda);"><span style="font-weight: bold;">{{agenda.horaingreso+':00'}}</span><br>{{agenda.cliente.persona.nombres}}
-							<br>{{agenda.servicio.servicio}} <br>{{agenda.estado.estado+agenda.estado.idestado}}</a>
+							<br>{{agenda.servicio.servicio}} <br>{{agenda.estado.estado}}</a>
 						</td>
 						<td class="cita" *ngFor="let n of this.counter(10-cita.citas.length); let index = index"></td>
 						<td class="cita-boton">
@@ -84,27 +84,29 @@
 			</div>
 		</div>
 	</div>
-	<div class="row" style="display: flex; justify-content:center;" >
+	<div class="row" style="display: flex; justify-content:center;"  *ngIf="this.showCambioEstado">
 		<div class="col-lg-5" style="border: 1px solid LightGrey; border-radius:20px; padding: 30px 30px 30px 30px; margin-top:30px;">
 			<div class="mb-3">
 				<label for="empleado" class="form-label" >Empleado</label>
-				<input type="text" class="form-control" id="empleado"  readonly>
+				<input type="text" class="form-control" id="empleado" [(ngModel)]="this.agenda.empleado.persona.nombres + ' ' +this.agenda.empleado.persona.apellidos "  readonly>
 			</div>
 			<div class="mb-3">
-				<label for="empleado" class="form-label" >Cliente</label>
-				<input type="text" class="form-control" id="cliente"  readonly>
+				<label for="cliente" class="form-label" >Cliente</label>
+				<input type="text" class="form-control" id="cliente" 
+					[(ngModel)]="this.agenda.cliente.persona.nombres + ' ' + this.agenda.cliente.persona.apellidos"  readonly>
 			</div>
 			<div class="mb-3">
-				<label for="empleado" class="form-label" >Telefono</label>
-				<input type="text" class="form-control" id="telefono"  readonly>
+				<label for="telefono" class="form-label" >Telefono</label>
+				<input type="text" class="form-control" id="telefono" [(ngModel)]="this.agenda.cliente.persona.telefono1"  readonly>
 			</div>
+
 			<div class="mb-3">
 				<label for="empleado" class="form-label" >Servicio</label>
-				<input type="text" class="form-control" id="servicio"  readonly>
+				<input type="text" class="form-control" id="servicio" [(ngModel)]="this.agenda.servicio.servicio" readonly>
 			</div>
 			<div class="mb-3">
 				<label for="empleado" class="form-label" >Horario</label>
-				<input type="text" class="form-control" id="horario"  readonly>
+				<input type="text" class="form-control" id="horario"  [(ngModel)]="this.agenda.horaingreso" readonly>
 			</div>
 			<div class="mb-3">
 				<label for="">Estado:</label>
@@ -114,6 +116,10 @@
 					<option value=4>Pagado</option>
 					<option value=5>Cancelado</option>
 				</select>
+			</div>
+			<div class="mb-3">
+				<button type="button" class="btn btn-primary" (click)="guardarCambiarEstado()" >Guardar</button>
+				<button type="button" class="btn btn-danger" style="margin-left: 5px;" (click)="cancelarCambiarEstado()" >Cancelar</button>
 			</div>
 		</div>
 	</div>

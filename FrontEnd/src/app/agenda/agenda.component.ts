@@ -52,9 +52,12 @@ export class AgendaComponent implements OnInit {
   fecha:Date=new Date;
   showCitas=false;
   showIngreso=false;
+  showCambioEstado=false;
 
   empleado:any;
   empleadoText:string="";
+
+  agenda:Agenda={} as Agenda;
   
 
   
@@ -104,6 +107,7 @@ export class AgendaComponent implements OnInit {
   }
 
   estadoSelectValue(ev:any){
+    
     this.estadoSelectedValue=ev;
   }
 
@@ -176,8 +180,24 @@ export class AgendaComponent implements OnInit {
     this.horarioSelectedValue=-1;
   }
 
-  cambiarEstado(agenda:any){
-    console.log(agenda);
+  cambiarEstado(agenda:Agenda){
+    this.showCambioEstado=true;
+    this.showCitas=false;
+    this.agenda=agenda;
+  }
+
+  guardarCambiarEstado(){
+    //console.log(this.agenda);
+    //console.log(this.estados.filter(e=>e.idestado==this.estadoSelectedValue));
+    this.agenda.estado=this.estados.filter(e=>e.idestado==this.estadoSelectedValue)[0];
+    this.agendaServices.grabar(this.agenda).subscribe(data => this.agenda=data);
+    this.showCambioEstado=false;
+    this.showCitas=true;
+  }
+
+  cancelarCambiarEstado(){
+    this.showCambioEstado=false;
+    this.showCitas=true;
   }
  
 }
